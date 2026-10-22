@@ -69,3 +69,7 @@ For GitHub Pages, select the new repository's chosen branch and root directory i
 ## Paystack payments
 
 The announcement bar’s **Make a Payment** link on the homepage and terms page opens the public Paystack-hosted payment page at `https://paystack.shop/pay/wd0c70e6o9` in a new tab. No Paystack API keys are included or required. Payment processing happens on Paystack, outside this static website.
+
+## Video success stories
+
+The Success Stories navigation link opens the client-feedback section. Eight user-uploaded videos live in `assets/stories/`, alongside locally generated poster images; the prior testimonial remains as the ninth story. All videos retain their original H.264/AAC tracks and are remuxed for fast-start playback. Videos have native controls, do not autoplay or preload their content, and pause when another video starts or they leave the visible gallery. The gallery supports swipe/scroll, previous/next controls, position indicators, keyboard browsing, and reduced motion. Run `python3 scripts/success_stories.py` against the local server on port 3001 for targeted functional checks.

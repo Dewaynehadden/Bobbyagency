@@ -27,3 +27,7 @@ The terms and refund policy text was compared against the original published ter
 ## Announcement bar
 
 Verified email, project availability, pricing/payment/terms/contact links on the homepage and policy page. Browser checks passed at 320/390/700/768/900/1051/1440px, including sticky bar and header alignment, mobile navigation, terms navigation, and no JavaScript errors. Pricing and payment links intentionally point to the existing published pages.
+
+## Client success stories
+
+All nine video files loaded valid metadata and all poster requests succeeded. Chromium exercised actual playback on two videos and confirmed that starting the second pauses the first. Gallery arrows, end states, mobile position indicators, keyboard navigation, responsive widths from 320 to 1440px, and JavaScript errors were checked. Desktop and mobile screenshots were inspected.

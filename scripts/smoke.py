@@ -153,7 +153,7 @@ with sync_playwright() as p:
     for img in page.locator('img').all():
         img.evaluate('(i)=>{i.loading="eager"; return i.decode()}')
     assert page.locator('img').evaluate_all('(imgs)=>imgs.every(i=>i.complete && i.naturalWidth>0)')
-    video = page.locator('video')
+    video = page.locator('video').first
     video.evaluate('(v)=>{v.preload="metadata";v.load()}')
     page.wait_for_function('document.querySelector("video").readyState>=1', timeout=15000)
     assert video.evaluate('(v)=>v.duration>0 && v.videoWidth>0')
