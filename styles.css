@@ -27,3 +27,19 @@
 @media(max-width:1250px){.brand small{font-size:6px;letter-spacing:1px}}
 @media(max-width:760px){.billboard-title{left:38%;right:2%;font-size:6.7vw;top:5%;letter-spacing:-1.2px}.brand small{font-size:6px;letter-spacing:1px}}
 @media(max-width:480px){.billboard-title{left:38%;right:1%;font-size:6.9vw;letter-spacing:-1px;top:6%}.brand small{font-size:5px;letter-spacing:.8px}}
+/* Terms and refund policy, shared Bobbyagency branding. */
+.policy-hero{border-bottom:1px solid var(--border)}
+.policy-hero h1{max-width:950px;margin:0 auto 20px;line-height:1.2}
+.policy-hero p{margin:0;font-size:13px}
+.policy-content{max-width:940px;padding-block:55px 80px}
+.legal-toc{display:flex;gap:10px;flex-wrap:wrap;padding-bottom:35px;border-bottom:1px solid var(--border);margin-bottom:40px}
+.legal-toc a{border:1px solid #e5d8b6;background:#fffbf1;color:#805b10;font-size:12px;padding:10px 14px;border-radius:25px}
+.legal-toc a:hover{background:#fff0c9}
+.policy-content h2{font-size:30px;letter-spacing:-.7px;margin:45px 0 20px;scroll-margin-top:100px}
+.policy-content h3{font-size:18px;letter-spacing:0;margin:27px 0 12px}
+.policy-content p,.policy-content li{font-size:14px;line-height:1.95;color:var(--muted)}
+.policy-content ul{padding-left:22px}
+.policy-content li{padding-left:3px;margin-bottom:14px}
+.policy-content a:not(.legal-toc a){color:#8c640d;text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+.policy-content strong{color:var(--ink)}
+@media(max-width:600px){.policy-hero{padding:45px 0}.policy-hero h1{font-size:29px}.policy-content{padding-block:32px 55px}.legal-toc{gap:8px;padding-bottom:25px;margin-bottom:30px}.legal-toc a{font-size:10px;padding:9px 12px}.policy-content h2{font-size:25px}.policy-content h3{font-size:17px}.policy-content p,.policy-content li{font-size:13px}.footer-bottom>div{flex-wrap:wrap;row-gap:12px}}

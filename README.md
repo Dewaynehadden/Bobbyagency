@@ -35,6 +35,8 @@ The existing email, WhatsApp, Upwork, Fiverr, LinkedIn, and Telegram links are r
 
 - `index.html`: page structure, service cards, contact details, dialogs, FAQs, and metadata.
 - `styles.css`: responsive layout, design tokens, and animations.
+- `terms.html`: full terms, deposits, refund, privacy, and contact policy, copied from the existing terms page with the Bobbyagency name.
+- `terms.js`: independent terms-page mobile navigation and footer year.
 - `app.js`: navigation, carousel, search/filtering, dialogs, and email briefs.
 - `site-data.js`: service detail content and portfolio records. When changing service names, keep the corresponding static card text and enquiry options in `index.html` consistent.
 - `assets/`: locally served images, SVG illustrations, monogram, and existing testimonial video.

@@ -19,3 +19,7 @@ Functional Chromium checks passed for the new Bobbyagency website.
 Desktop and mobile screenshots were inspected, including the service cards, founder orbit, hero banners, contact section, and enquiry dialog. The browser tests run against the locally served website; actual email delivery and third-party profile availability are not claimed.
 
 The existing `/workspace/Bobby` tracked files have no changes. Its pre-redesign HTML, CSS, JavaScript, and README match the preserved backup byte for byte.
+
+## Terms page update
+
+The terms and refund policy text was compared against the original published terms page and matches after updating the business name to Bobbyagency. Browser checks passed for all five policy anchors, both homepage footer links, the privacy dialog link, mobile navigation, return links to the homepage, layouts at 320/390/768/1440px, and absence of JavaScript errors.

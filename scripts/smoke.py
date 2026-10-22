@@ -146,10 +146,8 @@ with sync_playwright() as p:
     page.locator('[data-legal="privacy"]').first.click()
     assert page.locator('#information-title').inner_text() == 'Privacy information'
     page.keyboard.press('Escape')
-    page.locator('[data-legal="terms"]').click()
-    assert page.locator('#information-title').inner_text() == 'Working together'
-    page.keyboard.press('Escape')
-    passed('All 10 FAQs and information dialogs')
+    assert page.locator('.site-footer a[href="terms.html"]').count() == 2
+    passed('All 10 FAQs, privacy dialog, and terms page links')
 
     # Decode lazy images so screenshots show actual content throughout the page.
     for img in page.locator('img').all():
