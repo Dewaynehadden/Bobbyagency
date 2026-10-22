@@ -23,3 +23,7 @@ The existing `/workspace/Bobby` tracked files have no changes. Its pre-redesign 
 ## Terms page update
 
 The terms and refund policy text was compared against the original published terms page and matches after updating the business name to Bobbyagency. Browser checks passed for all five policy anchors, both homepage footer links, the privacy dialog link, mobile navigation, return links to the homepage, layouts at 320/390/768/1440px, and absence of JavaScript errors.
+
+## Announcement bar
+
+Verified email, project availability, pricing/payment/terms/contact links on the homepage and policy page. Browser checks passed at 320/390/700/768/900/1051/1440px, including sticky bar and header alignment, mobile navigation, terms navigation, and no JavaScript errors. Pricing and payment links intentionally point to the existing published pages.
