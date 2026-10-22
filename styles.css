@@ -98,8 +98,8 @@ html{scroll-padding-top:calc(var(--header-height) + var(--announcement-height) +
 .service-modal-image{position:relative}
 .service-category{z-index:1}
 /* Rotate the outer wheel while the founder and skill labels remain upright. */
-.orbit-rotor{position:absolute;inset:0;z-index:1;animation:expertise-spin 72s linear infinite}
-.orbit-rotor>.skill-node{animation:expertise-counterspin 72s linear infinite}
+.orbit-rotor{position:absolute;inset:0;z-index:1;animation:expertise-spin 60s linear infinite}
+.orbit-rotor>.skill-node{animation:expertise-counterspin 60s linear infinite}
 .founder-center{z-index:2}
 .expertise-orbit:is(:hover,:focus-within) .orbit-rotor,.expertise-orbit:is(:hover,:focus-within) .skill-node,.expertise-orbit.is-paused .orbit-rotor,.expertise-orbit.is-paused .skill-node{animation-play-state:paused}
 .orbit-toggle{border-color:#dfc992;color:#9b741b;font-size:11px;border-radius:25px;padding:10px 20px;min-height:38px;margin:8px auto 20px}
