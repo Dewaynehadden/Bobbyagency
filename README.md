@@ -65,3 +65,7 @@ The checks exercise all service dialogs, enquiry validation and encoded email br
 This website uses its own repository: `https://github.com/Dewaynehadden/Bobbyagency`. Its files belong at that repository’s root. Do not upload them into the existing Bobby repository.
 
 For GitHub Pages, select the new repository's chosen branch and root directory in Settings → Pages. The site is static and needs no build command. The source repository is separate from Bobby. Uploading the source does not enable GitHub Pages; that publishing setting must be configured separately.
+
+## Paystack payments
+
+The announcement bar’s **Make a Payment** link on the homepage and terms page opens the public Paystack-hosted payment page at `https://paystack.shop/pay/wd0c70e6o9` in a new tab. No Paystack API keys are included or required. Payment processing happens on Paystack, outside this static website.
