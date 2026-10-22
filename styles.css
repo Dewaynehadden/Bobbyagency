@@ -66,3 +66,29 @@ html{scroll-padding-top:calc(var(--header-height) + var(--announcement-height) +
 .stories-controls{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:18px}.stories-controls>.icon-button{border:1px solid #dfd5bd;background:#fff;width:42px;height:42px;color:#9c721c}.stories-controls>.icon-button:hover:not(:disabled){background:#fff0cb}.stories-controls>.icon-button:disabled{opacity:.4}.stories-prev>.icon{transform:rotate(180deg)}.stories-position{font-size:12px;font-variant-numeric:tabular-nums;min-width:70px;text-align:center;margin:0;color:var(--muted)}
 @media(max-width:950px){.story-card{flex-basis:calc((100% - 22px)/2)}.stories-track{gap:22px}}
 @media(max-width:600px){.story-card{flex-basis:100%}.stories-track{gap:16px}.story-card video{max-height:65svh;aspect-ratio:9/13}.story-caption{padding:17px 19px}#testimonials .section-heading>.eyebrow{font-size:10px;letter-spacing:2px}.stories-controls{margin-top:12px}.stories-track{scroll-padding-left:3px}}
+/* Store report section: the reference's centered headline and four-card summary. */
+.sales-results-section{border-top:1px solid var(--border)}
+.sales-results-section>.container{max-width:1200px}
+.sales-results-section .eyebrow{color:#c38500;letter-spacing:2.8px;font-size:12px;font-weight:500}
+.sales-results-section .section-heading{margin-bottom:38px}
+.sales-results-section .section-subtitle{max-width:700px}
+.sales-summary{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;max-width:980px;margin:0 auto 48px}
+.sales-summary-card{display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative;background:#fff;border-radius:9px;padding:50px 15px 23px;min-height:150px}
+.sales-summary-card>.icon{position:absolute;left:20px;top:19px;width:31px;height:31px;color:#a87b08;border:3px solid #c89f21;border-radius:50%;padding:4px;background:#242a30;stroke:#f0c649;stroke-width:1.7}
+.sales-summary-card>strong{font-size:27px;font-weight:600;line-height:1.2;color:#d49602;letter-spacing:-.7px;margin-top:13px;text-align:center}
+.sales-summary-card>span{font-size:11px;color:var(--muted);margin-top:8px;text-align:center}
+.sales-summary-card:first-child>strong{font-size:37px}
+.sales-video-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
+.sales-video-card{background:#fff;border:1px solid var(--border);border-radius:11px;overflow:hidden;min-width:0;box-shadow:0 5px 20px #17203306}
+.sales-video-wrap{background:#11151c}
+.sales-video-card video{display:block;width:100%;aspect-ratio:16/10;object-fit:contain;background:#11151c}
+.sales-video-copy{padding:21px}.sales-report-number{font-size:9px;letter-spacing:1.4px;color:#a17514;display:flex;justify-content:space-between;gap:12px;align-items:center}.sales-report-number>span{font-variant-numeric:tabular-nums;color:var(--muted);letter-spacing:0;font-size:10px}
+.sales-video-copy h3{font-size:18px;letter-spacing:-.3px;margin:10px 0 8px}.sales-video-copy p{font-size:12px;margin:0}.sales-privacy-note{margin:25px 0 0;font-size:11px}
+@media(max-width:950px){.sales-video-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.sales-summary{gap:16px}.sales-summary-card{padding-inline:12px}.sales-summary-card>strong{font-size:22px}.sales-summary-card>span{font-size:10px}}
+@media(max-width:600px){.sales-summary{grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-bottom:30px}.sales-summary-card{min-height:145px;padding-top:48px}.sales-summary-card>strong{font-size:23px}.sales-summary-card>span{font-size:10px}.sales-video-grid{grid-template-columns:1fr;gap:22px}.sales-video-copy{padding:20px}.sales-video-copy h3{font-size:20px}.sales-results-section .eyebrow{font-size:9px;letter-spacing:2px}.sales-privacy-note{font-size:10px}}
+/* Two-column presentation for both client videos and sales reports. */
+.stories-track{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px;overflow:visible;scroll-snap-type:none;padding:0;border-radius:0}
+.story-card{flex:none;scroll-snap-align:none}
+.story-card video,.sales-video-card video{width:100%;height:auto;max-height:none;aspect-ratio:16/9;object-fit:contain}
+.sales-video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
+@media(max-width:600px){.stories-track,.sales-video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.story-caption,.sales-video-copy{padding:13px 10px}.story-caption>span,.sales-report-number{font-size:7px;letter-spacing:.6px}.story-caption>p{font-size:12px;line-height:1.5}.sales-video-copy h3{font-size:13px;line-height:1.4;margin:8px 0 5px}.sales-video-copy p{font-size:10px;line-height:1.6}.sales-report-number>span{font-size:8px}.story-card,.sales-video-card{border-radius:8px}}

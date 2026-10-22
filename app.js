@@ -375,44 +375,12 @@ $$('[data-legal]').forEach(button => button.addEventListener('click', () => {
   openDialog($('#information-dialog'));
 }));
 
-// Success stories are manually browsed; only one testimonial plays at a time.
-const storiesTrack = $('.stories-track');
-if (storiesTrack) {
-  const cards = $$('.story-card', storiesTrack);
-  const previous = $('.stories-prev');
-  const next = $('.stories-next');
-  function storyLayout() {
-    const gap = parseFloat(getComputedStyle(storiesTrack).gap) || 0;
-    const step = cards[0].getBoundingClientRect().width + gap;
-    return { step, visible: Math.max(1, Math.round((storiesTrack.clientWidth + gap) / step)) };
-  }
-  function updateStoryPosition() {
-    const { step, visible } = storyLayout();
-    const first = Math.min(cards.length - visible, Math.max(0, Math.round(storiesTrack.scrollLeft / step)));
-    $('.stories-position').textContent = `${first + 1}–${Math.min(cards.length, first + visible)} / ${cards.length}`;
-    previous.disabled = first === 0;
-    next.disabled = first + visible >= cards.length;
-  }
-  function moveStories(direction) {
-    const { step, visible } = storyLayout();
-    storiesTrack.scrollBy({ left: direction * step * visible, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
-  }
-  previous.addEventListener('click', () => moveStories(-1));
-  next.addEventListener('click', () => moveStories(1));
-  storiesTrack.addEventListener('scroll', updateStoryPosition, { passive: true });
-  storiesTrack.addEventListener('keydown', event => {
-    if (event.target !== storiesTrack || !['ArrowLeft', 'ArrowRight'].includes(event.key)) return;
-    event.preventDefault();
-    moveStories(event.key === 'ArrowRight' ? 1 : -1);
-  });
-  const storyVideos = $$('video', storiesTrack);
-  storyVideos.forEach(video => video.addEventListener('play', () => {
-    storyVideos.forEach(other => { if (other !== video) other.pause(); });
-  }));
-  const visibility = new IntersectionObserver(entries => {
-    entries.forEach(entry => { if (!entry.isIntersecting) entry.target.pause(); });
-  }, { threshold: 0.1 });
-  storyVideos.forEach(video => visibility.observe(video));
-  new ResizeObserver(updateStoryPosition).observe(storiesTrack);
-  updateStoryPosition();
-}
+// Dashboard reports and testimonials share a single active video player.
+const portfolioVideos = $$('main video');
+portfolioVideos.forEach(video => video.addEventListener('play', () => {
+  portfolioVideos.forEach(other => { if (other !== video) other.pause(); });
+}));
+const reportVisibility = new IntersectionObserver(entries => {
+  entries.forEach(entry => { if (!entry.isIntersecting) entry.target.pause(); });
+}, { threshold: 0.1 });
+portfolioVideos.forEach(video => reportVisibility.observe(video));

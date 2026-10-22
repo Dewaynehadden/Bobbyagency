@@ -31,3 +31,11 @@ Verified email, project availability, pricing/payment/terms/contact links on the
 ## Client success stories
 
 All nine video files loaded valid metadata and all poster requests succeeded. Chromium exercised actual playback on two videos and confirmed that starting the second pauses the first. Gallery arrows, end states, mobile position indicators, keyboard navigation, responsive widths from 320 to 1440px, and JavaScript errors were checked. Desktop and mobile screenshots were inspected.
+
+## Sales-results draft
+
+Eight H.264 recordings and all posters were validated. Browser checks exercised metadata and real playback, single-player behavior across both video sections, no video content preloading on initial page load, four summary cards without unconfirmed aggregate claims, mobile navigation, and responsive widths at 320/390/600/768/950/1051/1440px. Existing nine testimonial videos remain. Desktop/mobile screenshots were reviewed. This batch has not been published.
+
+## Two-column video layout
+
+Both testimonial and sales-report sections use exactly two columns at 320/390/600/768/1051/1440px. Each player is 16:9 and retains the full source frame. There are nine testimonial videos and eight sales recordings. Carousel controls have been removed from the testimonial section. Layout, screenshots, playback, resource loading, and JavaScript errors were checked for the final presentation.
