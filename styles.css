@@ -92,3 +92,18 @@ html{scroll-padding-top:calc(var(--header-height) + var(--announcement-height) +
 .story-card video,.sales-video-card video{width:100%;height:auto;max-height:none;aspect-ratio:16/9;object-fit:contain}
 .sales-video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:26px}
 @media(max-width:600px){.stories-track,.sales-video-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.story-caption,.sales-video-copy{padding:13px 10px}.story-caption>span,.sales-report-number{font-size:7px;letter-spacing:.6px}.story-caption>p{font-size:12px;line-height:1.5}.sales-video-copy h3{font-size:13px;line-height:1.4;margin:8px 0 5px}.sales-video-copy p{font-size:10px;line-height:1.6}.sales-report-number>span{font-size:8px}.story-card,.sales-video-card{border-radius:8px}}
+/* Service photography uses twelve distinct regions from one locally served sheet. */
+.service-image>img.service-photo,.service-modal-image>img.service-photo{position:absolute;max-width:none;width:300%;height:400%;object-fit:fill;object-position:initial;left:calc(var(--photo-col)*-100%);top:calc(var(--photo-row)*-100%);transform:none;transition:none}
+.service-card:hover .service-image>img.service-photo{transform:none}
+.service-modal-image{position:relative}
+.service-category{z-index:1}
+/* Rotate the outer wheel while the founder and skill labels remain upright. */
+.orbit-rotor{position:absolute;inset:0;z-index:1;animation:expertise-spin 72s linear infinite}
+.orbit-rotor>.skill-node{animation:expertise-counterspin 72s linear infinite}
+.founder-center{z-index:2}
+.expertise-orbit:is(:hover,:focus-within) .orbit-rotor,.expertise-orbit:is(:hover,:focus-within) .skill-node,.expertise-orbit.is-paused .orbit-rotor,.expertise-orbit.is-paused .skill-node{animation-play-state:paused}
+.orbit-toggle{border-color:#dfc992;color:#9b741b;font-size:11px;border-radius:25px;padding:10px 20px;min-height:38px;margin:8px auto 20px}
+@keyframes expertise-spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes expertise-counterspin{from{transform:translate(-50%,-50%) rotate(0deg)}to{transform:translate(-50%,-50%) rotate(-360deg)}}
+@media(prefers-reduced-motion:reduce){.orbit-rotor,.orbit-rotor>.skill-node{animation:none!important}}
+.service-image:has(>img.service-photo),.service-modal-image:has(>img.service-photo){height:auto;aspect-ratio:2/1}

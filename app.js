@@ -139,7 +139,12 @@ function showService(index) {
   $('#service-title').textContent = service.title;
   $('#service-category').textContent = service.category.toUpperCase();
   $('#service-description').textContent = service.desc;
-  $('#service-dialog-image').src = `assets/services/service-${index + 1}.svg`;
+  const serviceImage = $('#service-dialog-image');
+  serviceImage.src = 'assets/services/service-photography.png';
+  serviceImage.classList.add('service-photo');
+  serviceImage.style.setProperty('--photo-col', String(index % 3));
+  serviceImage.style.setProperty('--photo-row', String(Math.floor(index / 3)));
+  serviceImage.alt = `${service.title} service illustration`;
   const includes = $('#service-includes');
   includes.replaceChildren();
   service.includes.forEach(text => {
@@ -384,3 +389,24 @@ const reportVisibility = new IntersectionObserver(entries => {
   entries.forEach(entry => { if (!entry.isIntersecting) entry.target.pause(); });
 }, { threshold: 0.1 });
 portfolioVideos.forEach(video => reportVisibility.observe(video));
+
+// Wheel rotation can be paused independently and honors reduced motion.
+const expertiseWheel = $('.expertise-orbit');
+const orbitToggle = $('.orbit-toggle');
+if (expertiseWheel && orbitToggle) {
+  let wheelPaused = reducedMotion.matches;
+  function updateWheel() {
+    expertiseWheel.classList.toggle('is-paused', wheelPaused);
+    orbitToggle.setAttribute('aria-pressed', String(wheelPaused));
+    orbitToggle.setAttribute('aria-label', wheelPaused ? 'Resume wheel rotation' : 'Pause wheel rotation');
+    orbitToggle.textContent = wheelPaused ? 'Resume rotation' : 'Pause rotation';
+    orbitToggle.disabled = reducedMotion.matches;
+    if (reducedMotion.matches) {
+      orbitToggle.textContent = 'Rotation off · reduced motion';
+      orbitToggle.setAttribute('aria-label', 'Wheel rotation is off for reduced motion');
+    }
+  }
+  orbitToggle.addEventListener('click', () => { wheelPaused = !wheelPaused; updateWheel(); });
+  reducedMotion.addEventListener('change', event => { wheelPaused = event.matches; updateWheel(); });
+  updateWheel();
+}

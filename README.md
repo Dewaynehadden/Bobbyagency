@@ -77,3 +77,9 @@ The Success Stories navigation link opens the client-feedback section. Eight use
 ## Sales-results draft
 
 The `#sales-proof` section contains eight uploaded Shopify dashboard recordings with local poster images and native playback controls. Its four summary cards show the actual recording count, platform, report focus, and on-demand viewing; the reference site’s aggregate revenue, growth, order totals, and verification claims are not copied. Identifying browser and customer-table areas are blurred in the website copies of desktop recordings; the uploaded originals remain outside the repository and are unchanged. This batch is saved locally for publication with later changes, not pushed to the live branch. Run `python3 scripts/sales_results.py` against the local server on port 3001 to validate the section. The sales-report grid also uses two columns and 16:9 players at every screen size.
+
+## Service images and rotating expertise wheel
+
+All twelve service cards and detail dialogs use distinct service-specific generated photography-style illustrations. One local image sheet (`assets/services/service-photography.png`) supplies the twelve views through CSS positioning, keeping downloads shared across the cards. These images illustrate service types and do not depict claimed client projects.
+
+The outer expertise wheel rotates once every 72 seconds; the founder stays fixed and each service label counter-rotates to stay upright. Hovering or focusing within the wheel pauses it. A Pause/Resume control is provided, and system reduced-motion preferences disable rotation. Skill buttons continue to open service details. These updates remain in the unpublished draft.

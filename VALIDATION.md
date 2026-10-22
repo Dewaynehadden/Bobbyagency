@@ -39,3 +39,7 @@ Eight H.264 recordings and all posters were validated. Browser checks exercised 
 ## Two-column video layout
 
 Both testimonial and sales-report sections use exactly two columns at 320/390/600/768/1051/1440px. Each player is 16:9 and retains the full source frame. There are nine testimonial videos and eight sales recordings. Carousel controls have been removed from the testimonial section. Layout, screenshots, playback, resource loading, and JavaScript errors were checked for the final presentation.
+
+## Service images and expertise rotation
+
+All twelve image regions and matching detail-dialog images were checked. Browser tests confirmed moving outer wheel transforms, a fixed founder, counter-rotating labels, pause/resume, hover/focus pausing, and functional skill buttons. Reduced-motion behavior, four responsive widths at four rotation angles, image loading, and absence of JavaScript errors passed. Final service-card and wheel screenshots were inspected.
