@@ -110,9 +110,9 @@ with sync_playwright() as p:
     page.keyboard.press('Escape')
     passed('Required fields, unsafe URL rejection, encoded email brief, and honest submission status')
 
-    assert page.locator('#project-grid .project-card').count() == 4
+    assert page.locator('#project-grid .project-card').count() == 12
     page.locator('#load-more').click()
-    assert page.locator('#project-grid .project-card').count() == 8
+    assert page.locator('#project-grid .project-card').count() == 20
     assert not page.locator('#load-more').is_visible()
     page.locator('[data-filter="Shopify"]').click()
     assert page.locator('#project-grid .project-card').count() == 1
@@ -120,13 +120,13 @@ with sync_playwright() as p:
     page.locator('[data-filter="Web design"]').click()
     assert page.locator('#project-grid .project-card').count() == 4
     page.locator('[data-filter="All"]').click()
-    page.locator('#project-search').fill('booking')
+    page.locator('#project-search').fill('Service Booking Website')
     assert page.locator('#project-grid .project-card').count() == 1
     page.locator('#project-search').fill('no-matching-project-123')
     assert page.locator('#project-empty').is_visible()
     assert page.locator('#project-grid .project-card').count() == 0
     page.locator('#reset-projects').click()
-    assert page.locator('#project-grid .project-card').count() == 4
+    assert page.locator('#project-grid .project-card').count() == 12
     assert page.locator('#project-search').input_value() == ''
     passed('Portfolio pagination, category filters, search, empty state, and reset')
 

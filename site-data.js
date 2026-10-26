@@ -458,96 +458,244 @@ window.BOBBY_DATA = {
       "title": "Multi-vendor Marketplace",
       "category": "Ecommerce",
       "type": "Interactive demo",
-      "image": "marketplace.png",
       "desc": "A multi-vendor shopping experience with searchable products, category browsing, and cart interactions.",
       "url": "https://dewaynehadden.github.io/demos/marketplace/",
       "tags": [
         "Ecommerce",
         "Web design"
-      ]
+      ],
+      "cover": "assets/banners/ecommerce-workspace.jpg",
+      "coverAlt": "Products and accessories arranged on a dark surface"
     },
     {
       "title": "Service Booking Website",
       "category": "Web design",
       "type": "Interactive demo",
-      "image": "booking.png",
       "desc": "A booking journey with service selection and scheduling, designed to make the next step straightforward.",
       "url": "https://dewaynehadden.github.io/demos/booking/",
       "tags": [
         "Web design"
-      ]
+      ],
+      "cover": "assets/portfolio/consultation.jpg",
+      "coverAlt": "Hands working on a laptop at a desk"
     },
     {
       "title": "Real Estate Experience",
       "category": "Web design",
       "type": "Interactive demo",
-      "image": "realestate.png",
       "desc": "A property browsing demo with listing cards, search tools, and a clear route to an enquiry.",
       "url": "https://dewaynehadden.github.io/demos/realestate/",
       "tags": [
         "Web design"
-      ]
+      ],
+      "cover": "assets/portfolio/interior.jpg",
+      "coverAlt": "Bright interior with seating and natural light"
     },
     {
       "title": "Restaurant & Online Ordering",
       "category": "Ecommerce",
       "type": "Interactive demo",
-      "image": "restaurant.png",
       "desc": "A restaurant concept with menu filters and order interactions, available to explore in your browser.",
       "url": "https://dewaynehadden.github.io/demos/restaurant/",
       "tags": [
         "Ecommerce",
         "Web design"
-      ]
+      ],
+      "cover": "assets/portfolio/food-products.jpg",
+      "coverAlt": "Fresh sandwich and croissant served outdoors"
     },
     {
       "title": "Shopify Store Design",
       "category": "Shopify",
       "type": "Upwork portfolio",
-      "art": "Fashion",
-      "accent": "#c5a36d",
       "desc": "Explore the Shopify store design entry published on our existing Upwork portfolio.",
       "url": "https://www.upwork.com/freelancers/~01d8f8c1ff8dccffea?p=1945939880955715584",
       "tags": [
         "Shopify",
         "Ecommerce"
-      ]
+      ],
+      "cover": "assets/services/photos/store-products.jpg",
+      "coverAlt": "Green sports shoe photographed as a product"
     },
     {
       "title": "Ecommerce SEO",
       "category": "SEO",
       "type": "Upwork portfolio",
-      "art": "Discover",
-      "accent": "#8cb9a4",
       "desc": "See the ecommerce SEO portfolio entry and discuss an optimization plan for your own store.",
       "url": "https://www.upwork.com/freelancers/~01d8f8c1ff8dccffea?p=1945929408168148992",
       "tags": [
         "SEO"
-      ]
+      ],
+      "cover": "assets/services/photos/product-research.jpg",
+      "coverAlt": "Cameras and photography equipment on a table"
     },
     {
       "title": "WooCommerce Development",
       "category": "WooCommerce",
       "type": "Upwork portfolio",
-      "art": "Commerce",
-      "accent": "#ad98c8",
       "desc": "View the WooCommerce build entry on our existing freelance profile.",
       "url": "https://www.upwork.com/freelancers/~01d8f8c1ff8dccffea?p=2030656501643010048",
       "tags": [
         "WooCommerce",
         "Ecommerce"
-      ]
+      ],
+      "cover": "assets/portfolio/packaged-products.jpg",
+      "coverAlt": "Sacks of coffee beans ready for commerce"
     },
     {
       "title": "Platform Migration",
       "category": "Migration",
       "type": "Upwork portfolio",
-      "art": "Next chapter",
-      "accent": "#99b9d3",
       "desc": "Explore the migration entry and talk through the requirements for moving your website.",
       "url": "https://www.upwork.com/freelancers/~01d8f8c1ff8dccffea?p=1938622612916563968",
       "tags": [
         "Migration"
+      ],
+      "cover": "assets/portfolio/code-workspace.jpg",
+      "coverAlt": "Code displayed on a computer screen"
+    },
+    {
+      "title": "Fashion & Accessories",
+      "category": "Ecommerce",
+      "type": "Industry idea",
+      "cover": "assets/banners/ecommerce-workspace.jpg",
+      "coverAlt": "Products and accessories arranged on a dark surface",
+      "desc": "A curated storefront with product collections, clear sizing information, and a simple checkout.",
+      "serviceIndex": 0,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Footwear & Sports",
+      "category": "Retail",
+      "type": "Industry idea",
+      "cover": "assets/services/photos/store-products.jpg",
+      "coverAlt": "Green sports shoe photographed as a product",
+      "desc": "An energetic product catalogue with size choices, collection filters, and product storytelling.",
+      "serviceIndex": 0,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Electronics & Gadgets",
+      "category": "Retail",
+      "type": "Industry idea",
+      "cover": "assets/portfolio/mobile-device.jpg",
+      "coverAlt": "Photograph illustrating electronics & gadgets",
+      "desc": "A device storefront with product comparisons, specifications, and clear purchase paths.",
+      "serviceIndex": 0,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Photography & Creative",
+      "category": "Creative",
+      "type": "Industry idea",
+      "cover": "assets/services/photos/product-research.jpg",
+      "coverAlt": "Cameras and photography equipment on a table",
+      "desc": "An image-led portfolio with galleries, service packages, and a project enquiry journey.",
+      "serviceIndex": 25,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Food & Restaurant",
+      "category": "Hospitality",
+      "type": "Industry idea",
+      "cover": "assets/portfolio/food-products.jpg",
+      "coverAlt": "Fresh sandwich and croissant served outdoors",
+      "desc": "A restaurant website with an accessible menu, opening hours, and ordering enquiries.",
+      "serviceIndex": 25,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Coffee & Beverages",
+      "category": "Hospitality",
+      "type": "Industry idea",
+      "cover": "assets/portfolio/coffee-products.jpg",
+      "coverAlt": "Photograph illustrating coffee & beverages",
+      "desc": "A warm, product-focused store for coffee collections, brewing guides, and repeat purchases.",
+      "serviceIndex": 0,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Spaces & Interiors",
+      "category": "Interior design",
+      "type": "Industry idea",
+      "cover": "assets/portfolio/interior.jpg",
+      "coverAlt": "Bright interior with seating and natural light",
+      "desc": "An interior design website with room galleries, project details, and consultation requests.",
+      "serviceIndex": 25,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Professional Services",
+      "category": "Business",
+      "type": "Industry idea",
+      "cover": "assets/portfolio/consultation.jpg",
+      "coverAlt": "Hands working on a laptop at a desk",
+      "desc": "A clear business website that explains your expertise and guides visitors to an enquiry.",
+      "serviceIndex": 25,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Booking & Consultation",
+      "category": "Appointments",
+      "type": "Industry idea",
+      "cover": "assets/banners/design-workspace.jpg",
+      "coverAlt": "Photograph illustrating booking & consultation",
+      "desc": "A service website designed around packages, availability, and consultation bookings.",
+      "serviceIndex": 25,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Content & Blogs",
+      "category": "Publishing",
+      "type": "Industry idea",
+      "cover": "assets/services/photos/content-workspace.jpg",
+      "coverAlt": "Photograph illustrating content & blogs",
+      "desc": "An editorial website with readable articles, topic navigation, and newsletter signups.",
+      "serviceIndex": 24,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Local Businesses",
+      "category": "Local services",
+      "type": "Industry idea",
+      "cover": "assets/portfolio/coffee-service.jpg",
+      "coverAlt": "Photograph illustrating local businesses",
+      "desc": "A welcoming local business website with services, location details, and contact options.",
+      "serviceIndex": 27,
+      "tags": [
+        "Industry ideas"
+      ]
+    },
+    {
+      "title": "Software & SaaS",
+      "category": "Technology",
+      "type": "Industry idea",
+      "cover": "assets/portfolio/code-workspace.jpg",
+      "coverAlt": "Code displayed on a computer screen",
+      "desc": "A software landing page with feature explanations, pricing, and a focused demo request.",
+      "serviceIndex": 25,
+      "tags": [
+        "Industry ideas"
       ]
     }
   ],

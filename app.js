@@ -255,44 +255,32 @@ $('#enquiry-form').addEventListener('submit', event => {
 
 // Portfolio filters, search, and pagination operate on the same dataset.
 let activeFilter = 'All';
-let visibleProjectCount = 4;
+const portfolioPageSize = 12;
+let visibleProjectCount = portfolioPageSize;
 const searchInput = $('#project-search');
 function projectElement(project) {
-  const card = document.createElement('a');
+  const isIdea = project.type === 'Industry idea';
+  const card = document.createElement(isIdea ? 'article' : 'a');
   card.className = 'project-card';
-  card.href = project.url;
-  card.target = '_blank';
-  card.rel = 'noopener';
+  if (isIdea) card.tabIndex = -1;
+  else { card.href = project.url; card.target = '_blank'; card.rel = 'noopener'; }
   const cover = document.createElement('div');
   cover.className = 'project-cover';
-  if (project.image) {
-    const image = document.createElement('img');
-    image.src = `assets/${project.image}`;
-    image.alt = `${project.title} preview`;
-    image.width = 1280;
-    image.height = 900;
-    image.loading = 'lazy';
-    cover.append(image);
-  } else {
-    const art = document.createElement('div');
-    art.className = 'portfolio-art';
-    art.style.setProperty('--art-accent', project.accent);
-    const kicker = document.createElement('small');
-    kicker.textContent = 'THE BOBBYAGENCY';
-    const title = document.createElement('b');
-    title.textContent = project.art;
-    const footer = document.createElement('span');
-    footer.textContent = 'PORTFOLIO COLLECTION';
-    art.append(kicker, title, footer);
-    cover.append(art);
-  }
+  const image = document.createElement('img');
+  image.src = project.cover;
+  image.alt = project.coverAlt;
+  image.width = 1280;
+  image.height = 900;
+  image.loading = 'lazy';
+  cover.append(image);
   const kind = document.createElement('span');
   kind.className = 'project-kind';
   kind.textContent = project.type;
   const arrow = document.createElement('span');
   arrow.className = 'project-open';
   arrow.innerHTML = iconMarkup('arrow-up');
-  cover.append(kind, arrow);
+  if (isIdea) cover.append(kind);
+  else cover.append(kind, arrow);
   const copy = document.createElement('div');
   copy.className = 'project-copy';
   const title = document.createElement('h3');
@@ -301,8 +289,9 @@ function projectElement(project) {
   description.textContent = project.desc;
   const meta = document.createElement('div');
   meta.className = 'project-meta';
-  const destination = document.createElement('span');
-  destination.textContent = project.image ? 'Explore live demo ↗' : 'View on Upwork ↗';
+  const destination = document.createElement(isIdea ? 'button' : 'span');
+  if (isIdea) { destination.className = 'project-idea-quote'; destination.dataset.quote = project.serviceIndex; destination.type = 'button'; }
+  destination.textContent = isIdea ? 'Discuss this idea →' : project.type === 'Interactive demo' ? 'Explore live demo ↗' : 'View on Upwork ↗';
   const category = document.createElement('span');
   category.textContent = project.category;
   meta.append(destination, category);
@@ -332,16 +321,16 @@ function renderProjects() {
 }
 $$('[data-filter]').forEach(button => button.addEventListener('click', () => {
   activeFilter = button.dataset.filter;
-  visibleProjectCount = 4;
+  visibleProjectCount = portfolioPageSize;
   renderProjects();
 }));
 searchInput.addEventListener('input', () => {
-  visibleProjectCount = 4;
+  visibleProjectCount = portfolioPageSize;
   renderProjects();
 });
 $('#load-more').addEventListener('click', () => {
   const oldCount = $$('#project-grid .project-card').length;
-  visibleProjectCount += 4;
+  visibleProjectCount += portfolioPageSize;
   renderProjects();
   const firstNewCard = $$('#project-grid .project-card')[oldCount];
   if (firstNewCard) firstNewCard.focus({ preventScroll: true });
@@ -349,7 +338,7 @@ $('#load-more').addEventListener('click', () => {
 $('#reset-projects').addEventListener('click', () => {
   activeFilter = 'All';
   searchInput.value = '';
-  visibleProjectCount = 4;
+  visibleProjectCount = portfolioPageSize;
   renderProjects();
   searchInput.focus();
 });

@@ -67,3 +67,6 @@ Validated category filtering, search, all-service expansion/collapse, empty-stat
 ## Trust, portfolio summary, real photos, and motion
 
 Validated six illustrated trust cards and their policy/contact/payment destinations; owner-provided 250+ project and 100% Upwork Job Success values; a nonnumeric Global reach card; nine initial service cards with all 28 retained; more than four distinct photographic images; matching service detail images; and layouts at six responsive widths. Motion checks covered reveal, bounce/flip behavior, count-up to accurate endpoints, no repeat counting, constant accessible labels, reduced-motion visibility, and no JavaScript/resource errors. All 28 quote/detail flows also passed after the image change.
+
+
+Portfolio photo update (2026-10-26): all 20 gallery cards use real photographic covers with local image assets. The eight existing demo/Upwork destinations are preserved; twelve prospective industry ideas are explicitly labeled and open relevant service quote dialogs. Twelve cards display initially, with filters, search, and load-more support. Stock photo covers illustrate themes and do not claim to be screenshots of client work. Photo sources and MIT license are recorded in assets/portfolio/ATTRIBUTION.md. Verified with scripts/portfolio_photos.py and scripts/smoke.py, including every idea quote action and 320–1440px layouts.

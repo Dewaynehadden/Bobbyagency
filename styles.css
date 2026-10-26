@@ -257,3 +257,9 @@ html{scroll-padding-top:calc(var(--header-height) + var(--announcement-height) +
 @keyframes badge-flip{0%{transform:perspective(500px) rotateY(0)}100%{transform:perspective(500px) rotateY(360deg)}}
 @keyframes photo-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.025)}}
 @media(prefers-reduced-motion:reduce){.motion-reveal.reveal-ready,.motion-reveal.reveal-ready.is-revealed{opacity:1!important;transform:none!important;animation:none!important}.trust-card>img,.portfolio-stat-card>img,.service-real-photo{animation:none!important;transform:none!important}}
+
+/* Photographic portfolio and clearly labeled industry enquiries. */
+.project-cover img { object-position: center; }
+.project-idea-quote { border: 0; padding: 8px 0; background: transparent; color: var(--gold-dark, #986000); font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
+.project-idea-quote:hover { text-decoration: underline; }
+.project-idea-quote:focus-visible { outline: 2px solid #b87900; outline-offset: 4px; }
