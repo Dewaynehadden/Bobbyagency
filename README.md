@@ -87,3 +87,9 @@ The outer expertise wheel rotates once every 60 seconds (about 10 seconds betwee
 ## Homepage photographic banners
 
 The three homepage banners use locally hosted photography: an ecommerce product arrangement, a laptop workspace, and the existing founder photograph. Source links and the Start Bootstrap MIT notice are retained in `assets/banners/ATTRIBUTION.md`. Text overlays and responsive crops keep the content readable. The carousel automatically advances every six seconds, wraps after the third slide, and retains manual arrows, dots, and a pause control. Automatic movement pauses on hover, keyboard focus, hidden tabs, and reduced-motion preference. Validate with `python3 scripts/banner.py`.
+
+## Expanded platforms and service quotes
+
+The Platforms section lists 39 tools across advertising/social, email/SEO/analytics, marketplaces, CMS/ecommerce, CRM/sales, and SaaS/automation. Two logo marquees pause on hover or focus, respect reduced motion, and are supplemented by an expandable category directory. The catalog and icon attribution are in `assets/platforms/`. No external APIs or account credentials are needed to display this section.
+
+Services includes all 24 offerings reviewed on the reference site plus four retained platform-specific, migration, and local-business services. Cards show estimated delivery, 2–5 revision allowances, and links to the existing Fiverr/Upwork profiles for reviews. The numbers supplied for review counts are awaiting a service-by-service match; no arbitrary counts or copied reference ratings are displayed. Service quote buttons open a choice of Fiverr, Upwork, Paystack for an agreed payment, or an email brief. The selected service is retained throughout the local quote flow.

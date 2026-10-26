@@ -28,12 +28,12 @@ with sync_playwright() as p:
     assert response.status == 200
     assert page.title().startswith('Bobbyagency')
     assert page.locator('h1').count() == 1
-    assert page.locator('.service-card').count() == 12
+    assert page.locator('.service-card').count() == 28
     ids = page.locator('[id]').evaluate_all('(elements)=>elements.map(e=>e.id)')
     assert len(ids) == len(set(ids)), 'duplicate IDs'
     for href in page.locator('a[href^="#"]').evaluate_all('(links)=>links.map(a=>a.getAttribute("href"))'):
         assert page.locator(href).count() == 1, href
-    passed('Page, 12 service cards, unique IDs, and all local navigation targets')
+    passed('Page, 28 service cards, unique IDs, and all local navigation targets')
 
     # Reduced-motion visitors should not be forced into automatic banner changes.
     assert page.locator('.carousel-pause').get_attribute('aria-pressed') == 'true'
@@ -48,7 +48,7 @@ with sync_playwright() as p:
     passed('Banner navigation, slide dots, previous/next, and reduced-motion pause')
 
     # Test every service detail, not just the first card.
-    for index in range(12):
+    for index in range(28):
         page.locator('.service-card .learn-more').nth(index).click()
         dialog = page.locator('#service-dialog')
         assert dialog.is_visible()
@@ -57,13 +57,15 @@ with sync_playwright() as p:
         assert page.locator('#service-includes li').count() == 4
         if index == 0:
             page.locator('#service-modal-quote').click()
+            assert page.locator('#quote-dialog').is_visible()
+            page.locator('#quote-email-option').click()
             assert page.locator('#enquiry-dialog').is_visible()
             assert page.locator('#client-service').input_value() == title
             page.keyboard.press('Escape')
         else:
             dialog.get_by_role('button', name='Close service details').click()
     assert not page.locator('body').evaluate('(b)=>b.classList.contains("modal-open")')
-    passed('All 12 service dialogs and service-specific quote selection')
+    passed('All 28 service dialogs and service-specific quote selection')
 
     page.locator('#meet-founder').click()
     assert page.locator('#founder-dialog').is_visible()

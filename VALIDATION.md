@@ -55,3 +55,7 @@ Re-ran both carousel and sales-playback checks, and the service-image/wheel chec
 ## Photographic banner correction
 
 Validated all three images, actual six-second transitions and wraparound, pause behavior, manual slide selection, enquiry CTA, and reduced-motion pause. Text, images, and buttons fit at 320/390/600/768/1440px with no horizontal overflow or JavaScript errors. Desktop/mobile screenshots were inspected after transition animations settled.
+
+## Platform directory and expanded service quotes
+
+Checked all 39 tools, every specifically requested platform, six category groups, logo decoding, marquee hover/focus pause, reduced-motion scrolling, six responsive widths, and no failed local assets or JavaScript errors. Checked 28 service detail dialogs and quote destinations, revision values 2/3/4/5, corresponding photo regions, the selected-service email option, wheel service links, and mobile/desktop layout. Disabled service hover displacement on narrow screens to keep quote buttons stable. Screenshot reviews covered the platform rows, directory, service cards, and channel-selection dialog.

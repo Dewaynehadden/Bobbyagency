@@ -146,3 +146,52 @@ html{scroll-padding-top:calc(var(--header-height) + var(--announcement-height) +
 @media(max-width:1000px){.hero-carousel .hero-slide{height:500px}.photo-banner-content{width:calc(100% - 110px)}.photo-banner-content h2{font-size:46px;max-width:590px}.photo-banner-content p{font-size:14px;max-width:390px}.photo-banner-content .banner-kicker{font-size:9px;letter-spacing:1.5px}.photo-billboard--founder .banner-photo{width:58%}.photo-billboard--founder .photo-banner-shade{background:linear-gradient(90deg,#11151d 0%,#11151ded 38%,#11151d60 67%,#11151d00 100%)}}
 @media(max-width:600px){.hero-carousel .hero-slide{height:535px}.photo-banner-content{width:calc(100% - 64px);padding:45px 0 65px;justify-content:flex-end}.photo-banner-content h2{font-size:35px;letter-spacing:-1.1px;line-height:1.13;max-width:390px;margin:15px 0}.photo-banner-content p{font-size:13px;line-height:1.8;margin-bottom:23px;max-width:350px}.photo-banner-content .banner-kicker{font-size:8px;letter-spacing:1.4px}.photo-banner-content>.button{font-size:11px;padding:14px 20px;min-height:44px}.photo-banner-shade{background:linear-gradient(180deg,#11151d15 0%,#11151d65 22%,#11151de8 52%,#11151d 100%)}.photo-billboard--products .banner-photo{object-position:68% center}.photo-billboard--design .banner-photo{object-position:62% top}.photo-billboard--founder .banner-photo{width:100%;height:75%;object-position:center 31%}.photo-billboard--founder .photo-banner-shade{background:linear-gradient(180deg,#11151d00 0%,#11151d20 26%,#11151de0 48%,#11151d 75%)}.hero-carousel .carousel-controls{bottom:16px}.hero-carousel .carousel-arrow{top:39%;width:30px;height:30px}}
 @media(max-width:360px){.photo-banner-content h2{font-size:30px}.photo-banner-content{width:calc(100% - 56px)}.photo-banner-content .banner-kicker{font-size:7px}.photo-banner-content p{font-size:12px}}
+/* Marketing, marketplaces, CMS, CRM, and SaaS platform directory. */
+.platforms-section .section-subtitle{color:var(--muted);max-width:780px}
+.platform-row{margin-top:32px}
+.platform-row-title{text-align:center;font-size:10px;letter-spacing:1.8px;text-transform:uppercase;font-weight:600;color:#927021;margin:0 20px 16px;line-height:1.6}
+.platform-row .platform-marquee{margin:0;mask-image:linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent);padding:6px 0}
+.platform-row .platform-track{gap:20px}.platform-row .platform-set{gap:20px}
+.platform-row-1 .platform-track{animation-duration:76s}
+.platform-row-2 .platform-track{animation-duration:150s;animation-direction:reverse}
+.platform-tile{width:185px;height:132px;gap:9px;flex-shrink:0;border-radius:11px;box-shadow:0 3px 8px #17203303;padding:15px 10px}
+.platform-tile .platform-mark{height:36px;width:140px;display:flex;align-items:center;justify-content:center}
+.platform-mark>img{width:34px;height:34px;max-width:100%;object-fit:contain}
+.platform-mark>.platform-wordmark{font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:750;letter-spacing:-.7px;line-height:1}
+.platform-tile .platform-name{font-size:12px;font-weight:600;letter-spacing:-.15px;color:var(--ink);line-height:1.35;text-align:center;white-space:normal;min-height:17px}
+.platform-tile .platform-type{font-size:8px;font-weight:400;letter-spacing:.2px;color:var(--muted);line-height:1.4;text-align:center}
+.platform-directory{max-width:1180px;margin:35px auto 5px;border:1px solid var(--border);border-radius:12px;background:#fcfbf8;overflow:hidden}
+.platform-directory>summary{display:flex;align-items:center;justify-content:center;gap:14px;cursor:pointer;list-style:none;padding:20px 25px;font-size:12px;font-weight:600;line-height:1.6;color:#765716;text-align:center}
+.platform-directory>summary::-webkit-details-marker{display:none}.platform-directory>summary>.icon{width:17px;height:17px;transition:transform .2s}
+.platform-directory[open]>summary>.icon{transform:rotate(180deg)}
+.platform-directory[open]>summary{border-bottom:1px solid var(--border);background:#fff8e8}
+.platform-directory-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;padding:32px}
+.platform-directory-grid>article{min-width:0}
+.platform-directory-grid h3{font-size:16px;letter-spacing:-.2px;margin:0 0 9px}
+.platform-directory-grid p{font-size:11px;line-height:1.7;margin:0 0 13px}
+.platform-directory-grid ul{padding:0;margin:0;list-style:none;display:flex;gap:7px;flex-wrap:wrap}
+.platform-directory-grid li{font-size:10px;color:#4e5b73;border:1px solid #e4e2dc;background:#fff;border-radius:20px;padding:5px 10px;line-height:1.5}
+@keyframes platform-scroll{to{transform:translateX(calc(-50% - 10px))}}
+@media(max-width:760px){.platform-directory-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:25px;padding:25px}.platform-tile{width:160px;height:122px}.platform-tile .platform-name{font-size:11px}.platform-tile .platform-type{font-size:7px}.platform-row-title{font-size:9px;letter-spacing:1.3px}.platform-row .platform-track,.platform-row .platform-set{gap:15px}.platform-mark>img{width:30px;height:30px}@keyframes platform-scroll{to{transform:translateX(calc(-50% - 7.5px))}}}
+@media(max-width:480px){.platform-directory-grid{grid-template-columns:1fr;gap:25px;padding:24px}.platform-directory>summary{font-size:11px;padding:18px 15px;gap:10px}.platform-directory-grid h3{font-size:15px}.platform-directory-grid li{font-size:10px}.platform-row{margin-top:27px}.platform-tile{width:150px}.platform-row .platform-marquee{mask-image:linear-gradient(90deg,transparent,#000 3%,#000 97%,transparent)}}
+@media(prefers-reduced-motion:reduce){.platform-row .platform-marquee{mask-image:none;overflow-x:auto}.platform-row .platform-track{animation:none!important}.platform-row .platform-set[aria-hidden=true]{display:none}}
+/* Service package details and platform quote choices. */
+.service-package-note{max-width:850px;margin:18px auto 0;font-size:11px}
+.service-review-line{display:flex;gap:7px;align-items:center;flex-wrap:wrap;font-size:10px;color:var(--muted);margin-bottom:13px;line-height:1.7}
+.service-review-line>.icon{width:15px;height:15px;color:#b7850f}
+.service-review-line>a{font-weight:600;color:#9d6c03;text-underline-offset:3px}
+.service-review-line>a:hover{text-decoration:underline}
+.service-package-meta{display:flex;gap:10px 17px;align-items:center;flex-wrap:wrap;color:var(--muted);font-size:11px;margin:0 0 17px;line-height:1.7}
+.service-package-meta>span{display:flex;align-items:center;gap:6px}.service-package-meta .icon{width:14px;height:14px}
+.quote-modal{width:min(620px,calc(100% - 30px))}
+.quote-service-name{display:inline-block;color:#966b12!important;background:#fff4d7;border:1px solid #ead8aa;border-radius:20px;padding:7px 14px;font-size:12px!important;margin-bottom:15px}
+.quote-channel-list{display:flex;flex-direction:column;gap:12px;margin:25px 0}
+.quote-channel{display:flex;align-items:center;gap:14px;border:1px solid var(--border);border-radius:10px;padding:17px;color:var(--ink);background:#fff;transition:background .2s,transform .2s}
+.quote-channel:hover{background:#fafbf7;transform:translateY(-2px)}
+.quote-channel-mark{display:grid;place-items:center;width:44px;height:44px;border-radius:10px;flex-shrink:0;font-size:22px;font-weight:700;letter-spacing:-1px;background:#e5f7ec;color:#138d51}
+.quote-channel>span:nth-child(2){flex:1}.quote-channel b{display:block;font-size:14px;line-height:1.5}.quote-channel small{display:block;font-size:10px;color:var(--muted);line-height:1.7;margin-top:4px}.quote-channel>.icon{width:18px;height:18px;color:#14894f}
+.quote-payment{padding:21px;background:#fffbef;border:1px solid #ecdfbd;border-radius:10px;margin:20px 0}
+.quote-payment h3{font-size:16px;margin:0 0 10px}.quote-payment p{font-size:12px;line-height:1.8;margin-bottom:16px}.quote-payment .button{width:100%;font-size:12px}
+.quote-email-option{border:0;background:none;padding:0;cursor:pointer;text-align:left}
+@media(max-width:600px){.service-package-note{font-size:10px}.service-review-line{font-size:10px}.quote-channel{padding:14px;gap:11px}.quote-channel b{font-size:12px}.quote-channel small{font-size:9px}.quote-channel-mark{width:37px;height:37px;font-size:19px}.quote-payment{padding:17px}.quote-payment .button{font-size:11px}.service-package-meta{font-size:11px}}
+@media(max-width:760px){.service-card:hover,.service-card .service-quote:hover{transform:none}}

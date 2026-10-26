@@ -142,9 +142,16 @@ function showService(index) {
   const serviceImage = $('#service-dialog-image');
   serviceImage.src = 'assets/services/service-photography.png';
   serviceImage.classList.add('service-photo');
-  serviceImage.style.setProperty('--photo-col', String(index % 3));
-  serviceImage.style.setProperty('--photo-row', String(Math.floor(index / 3)));
+  const imageCell = service.imageCell ?? (index % 12);
+  serviceImage.style.setProperty('--photo-col', String(imageCell % 3));
+  serviceImage.style.setProperty('--photo-row', String(Math.floor(imageCell / 3)));
   serviceImage.alt = `${service.title} service illustration`;
+  $('#service-dialog-package').replaceChildren();
+  for (const text of [`Est. ${service.deliveryDays} days`, `Up to ${service.revisions} revisions`]) {
+    const item = document.createElement('span');
+    item.textContent = text;
+    $('#service-dialog-package').append(item);
+  }
   const includes = $('#service-includes');
   includes.replaceChildren();
   service.includes.forEach(text => {
@@ -171,10 +178,20 @@ function openEnquiry(service = 'New website project', website = '') {
 document.addEventListener('click', event => {
   const serviceButton = event.target.closest('[data-service]');
   if (serviceButton) showService(Number(serviceButton.dataset.service));
+  const quoteButton = event.target.closest('[data-quote]');
+  if (quoteButton) openQuote(Number(quoteButton.dataset.quote));
   const enquireButton = event.target.closest('[data-enquire]');
   if (enquireButton) openEnquiry(enquireButton.dataset.enquire);
 });
-$('#service-modal-quote').addEventListener('click', () => openEnquiry(services[selectedServiceIndex].title));
+$('#service-modal-quote').addEventListener('click', () => openQuote(selectedServiceIndex));
+let quoteServiceIndex = 0;
+function openQuote(index) {
+  if (!services[index]) return;
+  quoteServiceIndex = index;
+  $('#quote-service-name').textContent = services[index].title;
+  openDialog($('#quote-dialog'));
+}
+$('#quote-email-option').addEventListener('click', () => openEnquiry(services[quoteServiceIndex].title));
 $('#meet-founder').addEventListener('click', () => openDialog($('#founder-dialog')));
 
 // Public URL validation only. No request is made to the submitted store.

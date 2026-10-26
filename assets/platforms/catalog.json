@@ -1,0 +1,233 @@
+[
+  {
+    "title": "Advertising & Social",
+    "desc": "Campaigns across search and social.",
+    "items": [
+      {
+        "name": "Google Ads",
+        "icon": "googleads.svg",
+        "color": "#4285F4"
+      },
+      {
+        "name": "Meta Ads",
+        "icon": "meta.svg",
+        "color": "#0467DF"
+      },
+      {
+        "name": "TikTok Ads",
+        "icon": "tiktok.svg",
+        "color": "#000000"
+      },
+      {
+        "name": "Pinterest Ads",
+        "icon": "pinterest.svg",
+        "color": "#BD081C"
+      },
+      {
+        "name": "LinkedIn Ads",
+        "color": "#0a66c2",
+        "wordmark": "in"
+      }
+    ]
+  },
+  {
+    "title": "Email, SEO & Analytics",
+    "desc": "Customer journeys, measurement, and discovery.",
+    "items": [
+      {
+        "name": "Klaviyo",
+        "color": "#1d1d1b",
+        "wordmark": "Klaviyo"
+      },
+      {
+        "name": "Mailchimp",
+        "icon": "mailchimp.svg",
+        "color": "#FFE01B"
+      },
+      {
+        "name": "Google Analytics 4 (GA4)",
+        "icon": "googleanalytics.svg",
+        "color": "#E37400"
+      },
+      {
+        "name": "Google Tag Manager",
+        "icon": "googletagmanager.svg",
+        "color": "#246FDB"
+      },
+      {
+        "name": "Semrush",
+        "icon": "semrush.svg",
+        "color": "#FF642D"
+      },
+      {
+        "name": "SEO",
+        "color": "#b37b14",
+        "wordmark": "SEO"
+      },
+      {
+        "name": "Google Merchant Center",
+        "color": "#4285f4",
+        "wordmark": "GMC"
+      },
+      {
+        "name": "Google Search Console",
+        "icon": "googlesearchconsole.svg",
+        "color": "#458CF5"
+      }
+    ]
+  },
+  {
+    "title": "Marketplaces",
+    "desc": "Product listings and selling channels.",
+    "items": [
+      {
+        "name": "Etsy",
+        "icon": "etsy.svg",
+        "color": "#F16521"
+      },
+      {
+        "name": "eBay",
+        "icon": "ebay.svg",
+        "color": "#E53238"
+      },
+      {
+        "name": "Amazon",
+        "color": "#232f3e",
+        "wordmark": "amazon"
+      },
+      {
+        "name": "Walmart",
+        "color": "#0071ce",
+        "wordmark": "Walmart"
+      },
+      {
+        "name": "TikTok Shop",
+        "icon": "tiktok.svg",
+        "color": "#000000"
+      },
+      {
+        "name": "Upwork",
+        "icon": "upwork.svg",
+        "color": "#6FDA44"
+      },
+      {
+        "name": "Fiverr",
+        "icon": "fiverr.svg",
+        "color": "#1DBF73"
+      }
+    ]
+  },
+  {
+    "title": "CMS & Ecommerce",
+    "desc": "Website and online-store platforms.",
+    "items": [
+      {
+        "name": "Shopify",
+        "icon": "shopify.svg",
+        "color": "#7AB55C"
+      },
+      {
+        "name": "WordPress",
+        "icon": "wordpress.svg",
+        "color": "#21759B"
+      },
+      {
+        "name": "WooCommerce",
+        "icon": "woocommerce.svg",
+        "color": "#96588A"
+      },
+      {
+        "name": "Wix",
+        "icon": "wix.svg",
+        "color": "#0C6EFC"
+      },
+      {
+        "name": "Webflow",
+        "icon": "webflow.svg",
+        "color": "#146EF5"
+      },
+      {
+        "name": "Squarespace",
+        "icon": "squarespace.svg",
+        "color": "#000000"
+      },
+      {
+        "name": "BigCommerce",
+        "icon": "bigcommerce.svg",
+        "color": "#121118"
+      },
+      {
+        "name": "Adobe Commerce (Magento)",
+        "color": "#ee672f",
+        "wordmark": "Magento"
+      },
+      {
+        "name": "Framer",
+        "icon": "framer.svg",
+        "color": "#0055FF"
+      }
+    ]
+  },
+  {
+    "title": "CRM & Sales",
+    "desc": "Leads, customer relationships, and pipelines.",
+    "items": [
+      {
+        "name": "HubSpot",
+        "icon": "hubspot.svg",
+        "color": "#FF7A59"
+      },
+      {
+        "name": "GoHighLevel (GHL)",
+        "color": "#155eef",
+        "wordmark": "GHL"
+      },
+      {
+        "name": "Salesforce",
+        "color": "#00a1e0",
+        "wordmark": "Salesforce"
+      },
+      {
+        "name": "Zoho CRM",
+        "icon": "zoho.svg",
+        "color": "#E42527"
+      },
+      {
+        "name": "Pipedrive",
+        "color": "#087b55",
+        "wordmark": "Pipedrive"
+      }
+    ]
+  },
+  {
+    "title": "SaaS & Automation",
+    "desc": "Connect apps and streamline everyday workflows.",
+    "items": [
+      {
+        "name": "Zapier",
+        "icon": "zapier.svg",
+        "color": "#FF4F00"
+      },
+      {
+        "name": "Make.com",
+        "icon": "make.svg",
+        "color": "#6D00CC"
+      },
+      {
+        "name": "Airtable",
+        "icon": "airtable.svg",
+        "color": "#18BFFF"
+      },
+      {
+        "name": "Notion",
+        "icon": "notion.svg",
+        "color": "#000000"
+      },
+      {
+        "name": "ClickFunnels",
+        "color": "#1a5fc0",
+        "wordmark": "CF"
+      }
+    ]
+  }
+]
