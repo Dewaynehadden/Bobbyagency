@@ -43,3 +43,7 @@ Both testimonial and sales-report sections use exactly two columns at 320/390/60
 ## Service images and expertise rotation
 
 All twelve image regions and matching detail-dialog images were checked. Browser tests confirmed moving outer wheel transforms, a fixed founder, counter-rotating labels, pause/resume, hover/focus pausing, and functional skill buttons. Reduced-motion behavior, four responsive widths at four rotation angles, image loading, and absence of JavaScript errors passed. Final service-card and wheel screenshots were inspected.
+
+## Carousel review update
+
+Client recommendations and sales proof now use separate manual carousels. Both retain their full video sets (nine and eight), display two columns above 600px and one player at smaller widths, and include previous/next controls, dots, counters, scroll/swipe, and keyboard navigation. Browser checks passed for arrows, end states, dots, Home/End controls, retained non-autoplay/preload settings, responsive widths at 320/390/600/768/1051/1440px, and no overflow or JavaScript errors. Desktop/mobile screenshots were reviewed. This update remains unpublished.

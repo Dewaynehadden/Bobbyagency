@@ -410,3 +410,54 @@ if (expertiseWheel && orbitToggle) {
   reducedMotion.addEventListener('change', event => { wheelPaused = event.matches; updateWheel(); });
   updateWheel();
 }
+
+// Shared manual carousels for client recommendations and sales reports.
+$$('[data-video-carousel]').forEach(carousel => {
+  const track = $('.media-track', carousel);
+  const cards = $$(':scope > article', track);
+  const previous = $('.media-prev', carousel);
+  const next = $('.media-next', carousel);
+  const dots = $('.media-dots', carousel);
+  const position = $('.media-position', carousel);
+  let starts = [];
+  let currentPage = 0;
+  let visibleCount = 0;
+  function update() {
+    const step = cards.length > 1 ? cards[1].offsetLeft - cards[0].offsetLeft : cards[0].offsetWidth;
+    const first = Math.max(0, Math.min(cards.length - visibleCount, Math.round(track.scrollLeft / step)));
+    currentPage = starts.reduce((closest, start, index) => Math.abs(start - first) < Math.abs(starts[closest] - first) ? index : closest, 0);
+    previous.disabled = currentPage === 0;
+    next.disabled = currentPage === starts.length - 1;
+    position.textContent = `${first + 1}–${Math.min(cards.length, first + visibleCount)} of ${cards.length} videos`;
+    $$('button', dots).forEach((dot, index) => dot.setAttribute('aria-current', String(index === currentPage)));
+  }
+  function goTo(pageIndex) {
+    const first = starts[Math.max(0, Math.min(starts.length - 1, pageIndex))];
+    track.scrollTo({ left: cards[first].offsetLeft - cards[0].offsetLeft, behavior: reducedMotion.matches ? 'instant' : 'smooth' });
+  }
+  function layout() {
+    const newCount = window.matchMedia('(max-width: 600px)').matches ? 1 : 2;
+    if (newCount !== visibleCount) {
+      visibleCount = newCount;
+      starts = [...new Set(Array.from({ length: Math.ceil(cards.length / visibleCount) }, (_, i) => Math.min(cards.length - visibleCount, i * visibleCount)))];
+      dots.replaceChildren(...starts.map((first, index) => {
+        const dot = document.createElement('button');
+        dot.type = 'button';
+        dot.setAttribute('aria-label', `Show videos ${first + 1}${visibleCount > 1 ? `–${Math.min(cards.length, first + visibleCount)}` : ''}`);
+        dot.addEventListener('click', () => goTo(index));
+        return dot;
+      }));
+    }
+    update();
+  }
+  previous.addEventListener('click', () => goTo(currentPage - 1));
+  next.addEventListener('click', () => goTo(currentPage + 1));
+  track.addEventListener('scroll', update, { passive: true });
+  track.addEventListener('keydown', event => {
+    if (event.target !== track) return;
+    const actions = { ArrowLeft: currentPage - 1, ArrowRight: currentPage + 1, Home: 0, End: starts.length - 1 };
+    if (event.key in actions) { event.preventDefault(); goTo(actions[event.key]); }
+  });
+  new ResizeObserver(layout).observe(track);
+  layout();
+});
