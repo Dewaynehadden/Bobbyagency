@@ -83,3 +83,7 @@ The `#sales-proof` section contains eight uploaded Shopify dashboard recordings 
 All twelve service cards and detail dialogs use distinct service-specific generated photography-style illustrations. One local image sheet (`assets/services/service-photography.png`) supplies the twelve views through CSS positioning, keeping downloads shared across the cards. These images illustrate service types and do not depict claimed client projects.
 
 The outer expertise wheel rotates once every 60 seconds (about 10 seconds between the six service positions); the founder stays fixed and each service label counter-rotates to stay upright. Hovering or focusing within the wheel pauses it. A Pause/Resume control is provided, and system reduced-motion preferences disable rotation. Skill buttons continue to open service details. These updates are included in the website release.
+
+## Homepage photographic banners
+
+The three homepage banners use locally hosted photography: an ecommerce product arrangement, a laptop workspace, and the existing founder photograph. Source links and the Start Bootstrap MIT notice are retained in `assets/banners/ATTRIBUTION.md`. Text overlays and responsive crops keep the content readable. The carousel automatically advances every six seconds, wraps after the third slide, and retains manual arrows, dots, and a pause control. Automatic movement pauses on hover, keyboard focus, hidden tabs, and reduced-motion preference. Validate with `python3 scripts/banner.py`.

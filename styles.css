@@ -126,3 +126,23 @@ html{scroll-padding-top:calc(var(--header-height) + var(--announcement-height) +
 @media(max-width:600px){.media-dots>button{width:20px;padding:6px}}
 /* Keep the rotating wheel's empty corners from widening narrow screens. */
 .team-section{overflow:clip}
+/* Photographic homepage banners with consistent, readable overlays. */
+.hero-carousel .hero-slide{aspect-ratio:auto;height:570px;min-height:0;max-height:none}
+.photo-billboard{height:100%;position:relative;isolation:isolate;overflow:hidden;background:#11151d;color:#fff}
+.photo-billboard .banner-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 53%;z-index:-2}
+.photo-banner-shade{position:absolute;inset:0;background:linear-gradient(90deg,#10151df5 0%,#10151de3 25%,#10151d7a 56%,#10151d1a 100%);z-index:-1}
+.photo-banner-content{height:100%;width:min(1380px,calc(100% - 160px));margin:auto;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:45px 0 60px}
+.photo-banner-content .banner-kicker{color:#f2c66b;font-size:11px;letter-spacing:2px;line-height:1.7;max-width:620px}
+.photo-banner-content h2{font-size:clamp(38px,4.4vw,66px);line-height:1.08;letter-spacing:-2px;font-weight:650;margin:22px 0;max-width:720px}
+.photo-banner-content h2>span{color:#ffd264}
+.photo-banner-content p{color:#e2e3e6;font-size:16px;line-height:1.8;max-width:480px;margin:0 0 28px}
+.photo-banner-content>.button{border-radius:30px;font-size:12px;padding:16px 25px;min-height:48px}
+.photo-billboard--design .banner-photo{object-position:center 44%}
+.photo-billboard--founder .banner-photo{left:auto;right:0;width:55%;object-position:center 33%}
+.photo-billboard--founder .photo-banner-shade{background:linear-gradient(90deg,#11151d 0%,#11151d 39%,#11151dba 54%,#11151d00 76%)}
+.hero-slide:not([hidden]) .photo-banner-content{animation:banner-copy-reveal .55s ease both}
+@keyframes banner-copy-reveal{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1600px){.photo-banner-content{width:min(1380px,calc(100% - 160px))}.hero-carousel .hero-slide{height:620px}}
+@media(max-width:1000px){.hero-carousel .hero-slide{height:500px}.photo-banner-content{width:calc(100% - 110px)}.photo-banner-content h2{font-size:46px;max-width:590px}.photo-banner-content p{font-size:14px;max-width:390px}.photo-banner-content .banner-kicker{font-size:9px;letter-spacing:1.5px}.photo-billboard--founder .banner-photo{width:58%}.photo-billboard--founder .photo-banner-shade{background:linear-gradient(90deg,#11151d 0%,#11151ded 38%,#11151d60 67%,#11151d00 100%)}}
+@media(max-width:600px){.hero-carousel .hero-slide{height:535px}.photo-banner-content{width:calc(100% - 64px);padding:45px 0 65px;justify-content:flex-end}.photo-banner-content h2{font-size:35px;letter-spacing:-1.1px;line-height:1.13;max-width:390px;margin:15px 0}.photo-banner-content p{font-size:13px;line-height:1.8;margin-bottom:23px;max-width:350px}.photo-banner-content .banner-kicker{font-size:8px;letter-spacing:1.4px}.photo-banner-content>.button{font-size:11px;padding:14px 20px;min-height:44px}.photo-banner-shade{background:linear-gradient(180deg,#11151d15 0%,#11151d65 22%,#11151de8 52%,#11151d 100%)}.photo-billboard--products .banner-photo{object-position:68% center}.photo-billboard--design .banner-photo{object-position:62% top}.photo-billboard--founder .banner-photo{width:100%;height:75%;object-position:center 31%}.photo-billboard--founder .photo-banner-shade{background:linear-gradient(180deg,#11151d00 0%,#11151d20 26%,#11151de0 48%,#11151d 75%)}.hero-carousel .carousel-controls{bottom:16px}.hero-carousel .carousel-arrow{top:39%;width:30px;height:30px}}
+@media(max-width:360px){.photo-banner-content h2{font-size:30px}.photo-banner-content{width:calc(100% - 56px)}.photo-banner-content .banner-kicker{font-size:7px}.photo-banner-content p{font-size:12px}}

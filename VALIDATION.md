@@ -51,3 +51,7 @@ Client recommendations and sales proof now use separate manual carousels. Both r
 ## Publication checks — October 26, 2026
 
 Re-ran both carousel and sales-playback checks, and the service-image/wheel checks. Fixed the rotating wheel’s empty transformed corners causing horizontal overflow on 320px screens by clipping within the full-width team section. All affected checks passed, including four rotation angles, all service detail images, 17 retained videos, carousel controls, metadata/playback, reduced motion, and mobile layout. Versioned CSS/JavaScript asset URLs help returning visitors receive the new release.
+
+## Photographic banner correction
+
+Validated all three images, actual six-second transitions and wraparound, pause behavior, manual slide selection, enquiry CTA, and reduced-motion pause. Text, images, and buttons fit at 320/390/600/768/1440px with no horizontal overflow or JavaScript errors. Desktop/mobile screenshots were inspected after transition animations settled.

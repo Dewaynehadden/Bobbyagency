@@ -71,7 +71,7 @@ function stopCarousel() { window.clearInterval(carouselTimer); }
 function startCarousel() {
   stopCarousel();
   if (manuallyPaused || document.hidden || carousel.matches(':hover') || carousel.contains(document.activeElement)) return;
-  carouselTimer = window.setInterval(() => showSlide(currentSlide + 1), 7500);
+  carouselTimer = window.setInterval(() => showSlide(currentSlide + 1), 6000);
 }
 $$('[data-carousel]').forEach(button => button.addEventListener('click', () => {
   showSlide(currentSlide + (button.dataset.carousel === 'next' ? 1 : -1));
