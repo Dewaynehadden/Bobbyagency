@@ -106,3 +106,6 @@ Nine photographic service cards are initially visible; all 28 remain available t
 
 
 Portfolio photo update (2026-10-26): all 20 gallery cards use real photographic covers with local image assets. The eight existing demo/Upwork destinations are preserved; twelve prospective industry ideas are explicitly labeled and open relevant service quote dialogs. Twelve cards display initially, with filters, search, and load-more support. Stock photo covers illustrate themes and do not claim to be screenshots of client work. Photo sources and MIT license are recorded in assets/portfolio/ATTRIBUTION.md. Verified with scripts/portfolio_photos.py and scripts/smoke.py, including every idea quote action and 320–1440px layouts.
+
+
+Original sales recordings restored (2026-10-26): all eight sales videos are byte-identical copies of the original user uploads, without added blur or recompression. Posters were regenerated from those originals; video/poster URLs include a new cache version. Original resolution and audio are preserved.
