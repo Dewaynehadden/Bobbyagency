@@ -79,3 +79,6 @@ Client review layout (2026-10-26): reference-inspired gold summary cards and sou
 
 
 Day/night mode (2026-10-26): shared theme.js applies the saved preference before CSS, defaults to the device color scheme, and synchronizes tabs. A labeled header button is available on desktop and mobile on both homepage and policy page. Photos and video pixels remain unchanged. Verified with scripts/theme.py: persistence, both pages, quote dialog, mobile menu, and ten widths from 320 to 1920px.
+
+
+Installable app (2026-10-26): scripts/pwa.py passed manifest/icon checks, worker activation, install guide on homepage/policy pages, 320–1440px layouts, offline fallback and successful retry after reconnection, with no JavaScript errors. scripts/theme.py also passed. Physical Android/iPhone installation was not performed in this environment.

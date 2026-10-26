@@ -115,3 +115,10 @@ Client review layout (2026-10-26): reference-inspired gold summary cards and sou
 
 
 Day/night mode (2026-10-26): shared theme.js applies the saved preference before CSS, defaults to the device color scheme, and synchronizes tabs. A labeled header button is available on desktop and mobile on both homepage and policy page. Photos and video pixels remain unchanged. Verified with scripts/theme.py: persistence, both pages, quote dialog, mobile menu, and ten widths from 320 to 1920px.
+
+
+## Installable website app
+
+The manifest and scope are relative to /Bobbyagency/, so the app installs from GitHub Pages without taking over other sites on the same origin. The footer Install Bobbyagency App button uses an available browser installation prompt or opens platform instructions. On iPhone, open in Safari, choose Share → Add to Home Screen, and confirm. On Android Chrome, use Install app / Add to Home screen. No store listing or native package is included.
+
+The service worker always fetches live pages and media. It caches only an offline reconnect page, its retry script, and its icon. Video playback, external payment pages, and enquiries require an internet connection. Updating page content does not require reinstalling the app. Day/night preferences are shared with the website. App icons are rasterized from the existing Bobbyagency brand SVG.

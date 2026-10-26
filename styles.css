@@ -309,3 +309,6 @@ html[data-theme="dark"] .legal-toc { background:#1d2533;border-color:var(--borde
 html[data-theme="dark"] .theme-toggle { background:#323b4d;color:#ffda76; }
 @media(max-width:1100px) { .theme-toggle { margin-left:auto;order:0; }.menu-toggle { margin-left:0; } }
 @media(max-width:480px) { .theme-toggle { width:36px;height:36px; }.header-actions { display:none; }.nav-container { gap:10px; } }
+
+.app-install-row { text-align:center;padding-top:24px;padding-bottom:24px; }.app-install-row p { margin:12px 0 0; }.install-dialog h3 { margin-top:24px; }.install-dialog strong { color:var(--ink); }
+@media(display-mode:standalone) { .pwa-install { display:none; } }
