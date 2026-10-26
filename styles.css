@@ -263,3 +263,29 @@ html{scroll-padding-top:calc(var(--header-height) + var(--announcement-height) +
 .project-idea-quote { border: 0; padding: 8px 0; background: transparent; color: var(--gold-dark, #986000); font: inherit; font-weight: 700; text-align: left; cursor: pointer; }
 .project-idea-quote:hover { text-decoration: underline; }
 .project-idea-quote:focus-visible { outline: 2px solid #b87900; outline-offset: 4px; }
+
+/* Client review summary and source-linked editorial cards. */
+.client-reviews-section { padding-top: 80px; scroll-margin-top: 120px; }
+.client-reviews-section h2 { font-size: clamp(29px, 3.6vw, 48px); }
+.review-summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;margin:42px 0 58px; }
+.review-summary-card { position:relative; background:#fff;border:1px solid #eee9df;border-radius:9px;padding:60px 18px 25px;text-align:center; }
+.review-summary-card img { position:absolute;top:18px;left:18px; }
+.review-summary-card strong { display:block;font-size:38px;line-height:1.2;color:#e89b00; }
+.review-summary-card span { display:block;font-size:13px;color:var(--muted);margin-top:8px; }
+.review-summary-card small { display:block;font-size:10px;color:var(--muted);margin-top:8px; }
+.reviews-carousel .reviews-heading { display:flex;align-items:center;justify-content:space-between;margin:0 0 24px; }
+.review-arrows { display:flex;gap:10px; }
+.review-arrows .media-prev .icon { transform:rotate(180deg); }
+.review-arrows .icon-button { border:1px solid var(--border);background:#fff; }
+.featured-review { scroll-snap-align:start;min-width:0;padding:28px;border-color:#eee9df;transition:border-color .2s; }
+.featured-review:hover { border-color:#f2c66f; }
+.featured-review .review-person { order:0; }
+.featured-review blockquote { order:1;font-size:14px;line-height:1.85;margin:24px 0; }
+.review-card-footer { order:2;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid #f4f1eb;padding-top:18px;font-size:11px; }
+.review-card-footer span { color:#a96d00;background:#fff7e4;padding:5px 8px;border-radius:3px; }
+.review-card-footer a { color:var(--muted); }
+.featured-review .review-person small { font-size:11px; }
+@media(max-width:760px) { .review-summary { grid-template-columns:repeat(2,minmax(0,1fr));gap:14px; }.review-summary-card strong { font-size:30px; }.client-reviews-section { padding-top:55px; } }
+@media(max-width:480px) { .review-summary-card { padding:58px 10px 20px; }.review-summary-card span { font-size:11px; }.review-summary-card small { font-size:9px; }.featured-review { padding:22px; }.review-card-footer { font-size:10px; } }
+
+.featured-review .review-person { display:flex;gap:12px;align-items:center; }.review-person b { display:block;font-size:12px; }.review-person small { display:block;color:var(--muted);margin-top:3px; }

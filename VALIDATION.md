@@ -73,3 +73,6 @@ Portfolio photo update (2026-10-26): all 20 gallery cards use real photographic 
 
 
 Original sales recordings restored (2026-10-26): all eight sales videos are byte-identical copies of the original user uploads, without added blur or recompression. Posters were regenerated from those originals; video/poster URLs include a new cache version. Original resolution and audio are preserved.
+
+
+Client review layout (2026-10-26): reference-inspired gold summary cards and source-linked written review carousel. Uses the three existing review excerpts unchanged, nine existing video stories, owner-reported Upwork Job Success, and global remote collaboration. No third-party names, ratings, flags, dates, or review totals were invented. Browser verification: scripts/reviews_layout.py covers arrows, keyboard End, responsive widths, image loading, and preservation of existing videos.

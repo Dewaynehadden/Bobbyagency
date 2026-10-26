@@ -418,6 +418,7 @@ if (expertiseWheel && orbitToggle) {
 
 // Shared manual carousels for client recommendations and sales reports.
 $$('[data-video-carousel]').forEach(carousel => {
+  const itemLabel = carousel.dataset.carouselLabel || 'videos';
   const track = $('.media-track', carousel);
   const cards = $$(':scope > article', track);
   const previous = $('.media-prev', carousel);
@@ -433,7 +434,7 @@ $$('[data-video-carousel]').forEach(carousel => {
     currentPage = starts.reduce((closest, start, index) => Math.abs(start - first) < Math.abs(starts[closest] - first) ? index : closest, 0);
     previous.disabled = currentPage === 0;
     next.disabled = currentPage === starts.length - 1;
-    position.textContent = `${first + 1}–${Math.min(cards.length, first + visibleCount)} of ${cards.length} videos`;
+    position.textContent = `${first + 1}–${Math.min(cards.length, first + visibleCount)} of ${cards.length} ${itemLabel}`;
     $$('button', dots).forEach((dot, index) => dot.setAttribute('aria-current', String(index === currentPage)));
   }
   function goTo(pageIndex) {
@@ -448,7 +449,7 @@ $$('[data-video-carousel]').forEach(carousel => {
       dots.replaceChildren(...starts.map((first, index) => {
         const dot = document.createElement('button');
         dot.type = 'button';
-        dot.setAttribute('aria-label', `Show videos ${first + 1}${visibleCount > 1 ? `–${Math.min(cards.length, first + visibleCount)}` : ''}`);
+        dot.setAttribute('aria-label', `Show ${itemLabel} ${first + 1}${visibleCount > 1 ? `–${Math.min(cards.length, first + visibleCount)}` : ''}`);
         dot.addEventListener('click', () => goTo(index));
         return dot;
       }));
