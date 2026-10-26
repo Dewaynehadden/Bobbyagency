@@ -124,3 +124,5 @@ html{scroll-padding-top:calc(var(--header-height) + var(--announcement-height) +
 .media-position{width:100%;text-align:center;margin:-5px 0 0;font-size:11px;color:var(--muted);font-variant-numeric:tabular-nums}
 @media(max-width:600px){.media-carousel{--media-gap:16px}.media-carousel>.media-track{grid-auto-columns:100%}.media-track .story-caption,.media-track .sales-video-copy{padding:19px}.media-track .story-caption>span,.media-track .sales-report-number{font-size:9px;letter-spacing:1px}.media-track .story-caption>p{font-size:15px}.media-track .sales-video-copy h3{font-size:19px}.media-track .sales-video-copy p{font-size:12px}.media-track .sales-report-number>span{font-size:10px}.media-controls{gap:9px;margin-top:17px}.media-dots{gap:0}.media-dots>button{width:23px;padding:7px}.media-controls>.icon-button{width:38px;height:38px}}
 @media(max-width:600px){.media-dots>button{width:20px;padding:6px}}
+/* Keep the rotating wheel's empty corners from widening narrow screens. */
+.team-section{overflow:clip}

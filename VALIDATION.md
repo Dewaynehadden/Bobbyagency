@@ -47,3 +47,7 @@ All twelve image regions and matching detail-dialog images were checked. Browser
 ## Carousel review update
 
 Client recommendations and sales proof now use separate manual carousels. Both retain their full video sets (nine and eight), display two columns above 600px and one player at smaller widths, and include previous/next controls, dots, counters, scroll/swipe, and keyboard navigation. Browser checks passed for arrows, end states, dots, Home/End controls, retained non-autoplay/preload settings, responsive widths at 320/390/600/768/1051/1440px, and no overflow or JavaScript errors. Desktop/mobile screenshots were reviewed. This update remains unpublished.
+
+## Publication checks — October 26, 2026
+
+Re-ran both carousel and sales-playback checks, and the service-image/wheel checks. Fixed the rotating wheel’s empty transformed corners causing horizontal overflow on 320px screens by clipping within the full-width team section. All affected checks passed, including four rotation angles, all service detail images, 17 retained videos, carousel controls, metadata/playback, reduced motion, and mobile layout. Versioned CSS/JavaScript asset URLs help returning visitors receive the new release.
