@@ -59,3 +59,7 @@ Validated all three images, actual six-second transitions and wraparound, pause 
 ## Platform directory and expanded service quotes
 
 Checked all 39 tools, every specifically requested platform, six category groups, logo decoding, marquee hover/focus pause, reduced-motion scrolling, six responsive widths, and no failed local assets or JavaScript errors. Checked 28 service detail dialogs and quote destinations, revision values 2/3/4/5, corresponding photo regions, the selected-service email option, wheel service links, and mobile/desktop layout. Disabled service hover displacement on narrow screens to keep quote buttons stable. Screenshot reviews covered the platform rows, directory, service cards, and channel-selection dialog.
+
+## Client-journey polish
+
+Validated category filtering, search, all-service expansion/collapse, empty-state recovery, retained service-specific quotes, general project quotes and email fallback, mobile menu dismissal, three-step process, canonical/social metadata, WhatsApp destination, all 28 services without JavaScript, and six responsive widths. All 28 service detail/quote flows and service images passed. Wheel motion, pause, reduced-motion, and responsive checks passed. Service hover displacement was replaced with a stable highlight so quote buttons remain steady.

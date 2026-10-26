@@ -9,6 +9,7 @@ with sync_playwright() as p:
  assert page.goto('http://127.0.0.1:3001/',wait_until='networkidle').status==200
  assert page.locator('.service-card').count()==28
  assert page.locator('.service-review-line').count()==28
+ page.locator('#service-show-all').click()
  assert {s['revisions'] for s in catalog}=={2,3,4,5}
  for index,service in enumerate(catalog):
   card=page.locator('.service-card').nth(index)
@@ -39,6 +40,7 @@ with sync_playwright() as p:
   assert page.locator('#service-dialog').is_visible()
   page.keyboard.press('Escape')
  for width in [320,390,768,1051,1440]:
+  print('Checking quote at width:',width,flush=True)
   page.set_viewport_size({'width':width,'height':1000})
   assert page.evaluate('document.documentElement.scrollWidth<=innerWidth'),width
   page.locator('.service-quote').first.click()

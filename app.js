@@ -20,7 +20,7 @@ menuToggle.addEventListener('click', () => {
   menuToggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
 });
 navigation.addEventListener('click', event => {
-  if (event.target.closest('a, [data-enquire]')) closeNavigation();
+  if (event.target.closest('a, [data-enquire], [data-quote]')) closeNavigation();
 });
 document.addEventListener('click', event => {
   if (!navigation.contains(event.target) && !menuToggle.contains(event.target)) closeNavigation();
@@ -179,19 +179,19 @@ document.addEventListener('click', event => {
   const serviceButton = event.target.closest('[data-service]');
   if (serviceButton) showService(Number(serviceButton.dataset.service));
   const quoteButton = event.target.closest('[data-quote]');
-  if (quoteButton) openQuote(Number(quoteButton.dataset.quote));
+  if (quoteButton) openQuote(quoteButton.dataset.quote === 'general' ? null : Number(quoteButton.dataset.quote));
   const enquireButton = event.target.closest('[data-enquire]');
   if (enquireButton) openEnquiry(enquireButton.dataset.enquire);
 });
 $('#service-modal-quote').addEventListener('click', () => openQuote(selectedServiceIndex));
 let quoteServiceIndex = 0;
 function openQuote(index) {
-  if (!services[index]) return;
+  if (index !== null && !services[index]) return;
   quoteServiceIndex = index;
-  $('#quote-service-name').textContent = services[index].title;
+  $('#quote-service-name').textContent = services[index]?.title || 'New website project';
   openDialog($('#quote-dialog'));
 }
-$('#quote-email-option').addEventListener('click', () => openEnquiry(services[quoteServiceIndex].title));
+$('#quote-email-option').addEventListener('click', () => openEnquiry(services[quoteServiceIndex]?.title || 'New website project'));
 $('#meet-founder').addEventListener('click', () => openDialog($('#founder-dialog')));
 
 // Public URL validation only. No request is made to the submitted store.
@@ -478,3 +478,48 @@ $$('[data-video-carousel]').forEach(carousel => {
   new ResizeObserver(layout).observe(track);
   layout();
 });
+
+// Progressive service finder: all cards remain available without JavaScript.
+const serviceFinder = $('.service-finder');
+if (serviceFinder) {
+  const cards = $$('.service-card');
+  const search = $('#service-search');
+  const showAllButton = $('#service-show-all');
+  let selectedGroup = 'All services';
+  let showAll = false;
+  function renderServices() {
+    const query = search.value.trim().toLowerCase();
+    const matches = cards.map((card, index) => ({ card, service: services[index] }))
+      .filter(({ service }) => (selectedGroup === 'All services' || service.group === selectedGroup)
+        && `${service.title} ${service.desc} ${service.category}`.toLowerCase().includes(query));
+    const visible = new Set((showAll ? matches : matches.slice(0, 6)).map(item => item.card));
+    cards.forEach(card => { card.hidden = !visible.has(card); });
+    $('#service-results-count').textContent = `Showing ${visible.size} of ${matches.length} services`;
+    $('.service-empty').hidden = matches.length !== 0;
+    showAllButton.hidden = matches.length <= 6;
+    showAllButton.textContent = showAll ? 'Show fewer services' : `View all ${matches.length} services`;
+    showAllButton.setAttribute('aria-expanded', String(showAll));
+    $$('[data-service-filter]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.serviceFilter === selectedGroup)));
+  }
+  serviceFinder.hidden = false;
+  $('.service-explore').hidden = false;
+  $$('[data-service-filter]').forEach(button => button.addEventListener('click', () => {
+    selectedGroup = button.dataset.serviceFilter;
+    showAll = false;
+    renderServices();
+  }));
+  search.addEventListener('input', () => { showAll = false; renderServices(); });
+  showAllButton.addEventListener('click', () => {
+    showAll = !showAll;
+    renderServices();
+    if (!showAll) $('#services .service-finder').scrollIntoView({ behavior: reducedMotion.matches ? 'instant' : 'smooth', block: 'start' });
+  });
+  $('#reset-services').addEventListener('click', () => {
+    search.value = '';
+    selectedGroup = 'All services';
+    showAll = false;
+    renderServices();
+    search.focus();
+  });
+  renderServices();
+}

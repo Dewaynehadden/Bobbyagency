@@ -6,6 +6,7 @@ with sync_playwright() as p:
  page=b.new_page(viewport={'width':1440,'height':1000},reduced_motion='no-preference')
  errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
  page.goto('http://127.0.0.1:3001/',wait_until='networkidle')
+ page.locator('#service-show-all').click()
  images=page.locator('.service-card img.service-photo')
  catalog=page.evaluate('window.BOBBY_DATA.services')
  assert images.count()==len(catalog)

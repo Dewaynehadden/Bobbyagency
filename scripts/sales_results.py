@@ -19,7 +19,7 @@ with sync_playwright() as p:
  assert page.locator('.sales-summary-card').count()==4
  assert not any('.mp4' in u for u in requests),'Video content should not preload'
  section=page.locator('#sales-proof')
- assert section.locator('h2').inner_text()=='Real Stores. Real Sales High.'
+ assert section.locator('h2').inner_text()=='Real Stores. Real Sales.'
  assert not any(t in section.inner_text() for t in ['2M+','850%','50K+','100+','VERIFIED'])
  for i,video in enumerate(section.locator('video').all()):
   video.evaluate('(v)=>{v.preload="metadata";v.load()}')

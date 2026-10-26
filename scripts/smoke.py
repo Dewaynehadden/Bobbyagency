@@ -47,6 +47,7 @@ with sync_playwright() as p:
     assert page.locator('[data-slide="0"]').is_visible()
     passed('Banner navigation, slide dots, previous/next, and reduced-motion pause')
 
+    page.locator('#service-show-all').click()
     # Test every service detail, not just the first card.
     for index in range(28):
         page.locator('.service-card .learn-more').nth(index).click()
@@ -183,7 +184,8 @@ with sync_playwright() as p:
     page.keyboard.press('Escape')
     assert toggle.get_attribute('aria-expanded') == 'false'
     assert toggle.evaluate('(b)=>document.activeElement===b')
-    page.locator('.chat-launcher').click()
+    page.locator('.header-actions [data-quote="general"]').click()
+    page.locator('#quote-email-option').click()
     assert page.locator('#enquiry-dialog').is_visible()
     # Native dialog must keep keyboard focus within itself.
     for _ in range(18):
@@ -196,7 +198,7 @@ with sync_playwright() as p:
     page.evaluate('window.scrollTo(0,0)')
     page.screenshot(path=str(artifacts/'mobile-top.png'))
     page.screenshot(path=str(artifacts/'mobile-full.png'),full_page=True)
-    passed('Mobile navigation, Escape focus restoration, chat launcher, and dialog keyboard focus')
+    passed('Mobile navigation, Escape focus restoration, general project enquiry, and dialog keyboard focus')
 
     assert not failed_resources, failed_resources
     assert not errors, errors

@@ -12,7 +12,8 @@ window.BOBBY_DATA = {
         "Branded product and collection layouts",
         "Navigation and customer journey improvements",
         "Launch checks and handover guidance"
-      ]
+      ],
+      "group": "Websites & Stores"
     },
     {
       "title": "SEO & SEM",
@@ -26,7 +27,8 @@ window.BOBBY_DATA = {
         "On-page and technical SEO review",
         "Search campaign planning",
         "Measurement and reporting setup"
-      ]
+      ],
+      "group": "Marketing & Growth"
     },
     {
       "title": "Email Marketing (Klaviyo)",
@@ -40,7 +42,8 @@ window.BOBBY_DATA = {
         "Email template design",
         "Welcome and follow-up flow planning",
         "Campaign and flow testing"
-      ]
+      ],
+      "group": "Marketing & Growth"
     },
     {
       "title": "Analytics & Tracking Setup",
@@ -54,7 +57,8 @@ window.BOBBY_DATA = {
         "GA4 configuration",
         "Google Tag Manager setup",
         "Key event validation and handover"
-      ]
+      ],
+      "group": "Analytics & Integrations"
     },
     {
       "title": "Content Marketing & Blogging",
@@ -68,7 +72,8 @@ window.BOBBY_DATA = {
         "Content calendar planning",
         "Blog and landing-page content",
         "Content formatting and on-page optimization"
-      ]
+      ],
+      "group": "Marketing & Growth"
     },
     {
       "title": "Backlinking & Off-Page SEO",
@@ -82,7 +87,8 @@ window.BOBBY_DATA = {
         "Relevant outreach opportunity research",
         "Business listing consistency checks",
         "Outreach plan and progress reporting"
-      ]
+      ],
+      "group": "Marketing & Growth"
     },
     {
       "title": "App & Plugin Integration",
@@ -96,7 +102,8 @@ window.BOBBY_DATA = {
         "Approved app or plugin configuration",
         "Agreed customer flow testing",
         "Requirements and handover documentation"
-      ]
+      ],
+      "group": "Analytics & Integrations"
     },
     {
       "title": "Payment Gateway & Checkout",
@@ -110,7 +117,8 @@ window.BOBBY_DATA = {
         "Payment link or gateway integration",
         "Checkout settings and usability checks",
         "Agreed test flow and handover"
-      ]
+      ],
+      "group": "Analytics & Integrations"
     },
     {
       "title": "Conversion Funnel Optimization",
@@ -124,7 +132,8 @@ window.BOBBY_DATA = {
         "Landing and product-page recommendations",
         "Call-to-action and layout improvements",
         "Agreed funnel implementation and testing"
-      ]
+      ],
+      "group": "Marketing & Growth"
     },
     {
       "title": "Google Merchant & Analytics",
@@ -138,7 +147,8 @@ window.BOBBY_DATA = {
         "Product feed structure and checks",
         "Store and product information review",
         "Analytics connection and reporting setup"
-      ]
+      ],
+      "group": "Analytics & Integrations"
     },
     {
       "title": "Google Search Console",
@@ -152,7 +162,8 @@ window.BOBBY_DATA = {
         "Sitemap review and submission",
         "Indexing and coverage checks",
         "Search performance handover"
-      ]
+      ],
+      "group": "Analytics & Integrations"
     },
     {
       "title": "Dropshipping Solutions",
@@ -166,7 +177,8 @@ window.BOBBY_DATA = {
         "Store and collection setup",
         "Agreed supplier tool integration",
         "Order flow and launch checks"
-      ]
+      ],
+      "group": "Websites & Stores"
     },
     {
       "title": "Multi Channel Marketing",
@@ -180,7 +192,8 @@ window.BOBBY_DATA = {
         "Campaign messaging and creative direction",
         "Tracking and landing-page alignment",
         "Campaign setup within agreed scope"
-      ]
+      ],
+      "group": "Marketing & Growth"
     },
     {
       "title": "AI Shopping Optimization",
@@ -194,7 +207,8 @@ window.BOBBY_DATA = {
         "Recommendation tool assessment",
         "Supported product discovery integration",
         "Experience testing and handover"
-      ]
+      ],
+      "group": "AI & Automation"
     },
     {
       "title": "TikTok Shop",
@@ -208,7 +222,8 @@ window.BOBBY_DATA = {
         "Shop setup guidance",
         "Product catalog organization",
         "Storefront and shopping flow checks"
-      ]
+      ],
+      "group": "Websites & Stores"
     },
     {
       "title": "Instagram Shop",
@@ -222,7 +237,8 @@ window.BOBBY_DATA = {
         "Product catalog connection",
         "Shopping setup and product-tag guidance",
         "Catalog and display checks"
-      ]
+      ],
+      "group": "Websites & Stores"
     },
     {
       "title": "Facebook Shop",
@@ -236,7 +252,8 @@ window.BOBBY_DATA = {
         "Commerce catalog configuration",
         "Store and product information setup",
         "Product display and connection checks"
-      ]
+      ],
+      "group": "Websites & Stores"
     },
     {
       "title": "Google Ads",
@@ -250,7 +267,8 @@ window.BOBBY_DATA = {
         "Campaign and ad-group structure",
         "Ad copy and creative coordination",
         "Conversion tracking and initial review"
-      ]
+      ],
+      "group": "Marketing & Growth"
     },
     {
       "title": "Pinterest Marketing",
@@ -264,7 +282,8 @@ window.BOBBY_DATA = {
         "Board and Pin content planning",
         "Product and website connection review",
         "Campaign setup within agreed scope"
-      ]
+      ],
+      "group": "Marketing & Growth"
     },
     {
       "title": "Product Research & Validation",
@@ -278,7 +297,8 @@ window.BOBBY_DATA = {
         "Audience and positioning review",
         "Catalog and collection recommendations",
         "Research findings and next-step plan"
-      ]
+      ],
+      "group": "Support & Strategy"
     },
     {
       "title": "Store Maintenance & Support",
@@ -292,7 +312,8 @@ window.BOBBY_DATA = {
         "Content and catalog updates",
         "Issue diagnosis and prioritization",
         "Clear record of completed work"
-      ]
+      ],
+      "group": "Support & Strategy"
     },
     {
       "title": "Complete Auto Revenue Sales Funnel",
@@ -306,7 +327,8 @@ window.BOBBY_DATA = {
         "Landing page and lead-capture setup",
         "Supported follow-up automation",
         "End-to-end funnel checks and handover"
-      ]
+      ],
+      "group": "Marketing & Growth"
     },
     {
       "title": "Agentic AI Optimization",
@@ -320,7 +342,8 @@ window.BOBBY_DATA = {
         "AI assistant or agent configuration",
         "Supported app and data connections",
         "Testing and human handover guidance"
-      ]
+      ],
+      "group": "AI & Automation"
     },
     {
       "title": "Ecommerce Growth Consulting",
@@ -334,7 +357,8 @@ window.BOBBY_DATA = {
         "Store and customer journey assessment",
         "Channel and platform recommendations",
         "Prioritized action plan and discussion"
-      ]
+      ],
+      "group": "Support & Strategy"
     },
     {
       "title": "WordPress & WooCommerce",
@@ -349,7 +373,8 @@ window.BOBBY_DATA = {
       ],
       "deliveryDays": 14,
       "revisions": 2,
-      "imageCell": 4
+      "imageCell": 4,
+      "group": "Websites & Stores"
     },
     {
       "title": "Wix & Webflow Websites",
@@ -364,7 +389,8 @@ window.BOBBY_DATA = {
       ],
       "deliveryDays": 10,
       "revisions": 3,
-      "imageCell": 5
+      "imageCell": 5,
+      "group": "Websites & Stores"
     },
     {
       "title": "Website & Store Migration",
@@ -379,7 +405,8 @@ window.BOBBY_DATA = {
       ],
       "deliveryDays": 14,
       "revisions": 4,
-      "imageCell": 6
+      "imageCell": 6,
+      "group": "Websites & Stores"
     },
     {
       "title": "Local Business Presence",
@@ -394,7 +421,8 @@ window.BOBBY_DATA = {
       ],
       "deliveryDays": 7,
       "revisions": 5,
-      "imageCell": 10
+      "imageCell": 10,
+      "group": "Support & Strategy"
     }
   ],
   "projects": [
