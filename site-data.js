@@ -6,14 +6,15 @@ window.BOBBY_DATA = {
       "category": "Design & development",
       "deliveryDays": 7,
       "revisions": 2,
-      "imageCell": 0,
       "includes": [
         "Store structure and responsive page design",
         "Branded product and collection layouts",
         "Navigation and customer journey improvements",
         "Launch checks and handover guidance"
       ],
-      "group": "Websites & Stores"
+      "group": "Websites & Stores",
+      "image": "assets/services/photos/store-products.jpg",
+      "imageAlt": "A photographed sneaker product on a bright studio background"
     },
     {
       "title": "SEO & SEM",
@@ -21,14 +22,15 @@ window.BOBBY_DATA = {
       "category": "Search & visibility",
       "deliveryDays": 10,
       "revisions": 3,
-      "imageCell": 1,
       "includes": [
         "Keyword and audience research",
         "On-page and technical SEO review",
         "Search campaign planning",
         "Measurement and reporting setup"
       ],
-      "group": "Marketing & Growth"
+      "group": "Marketing & Growth",
+      "image": "assets/banners/design-workspace.jpg",
+      "imageAlt": "A laptop and mouse on a wooden office desk"
     },
     {
       "title": "Email Marketing (Klaviyo)",
@@ -36,14 +38,15 @@ window.BOBBY_DATA = {
       "category": "Email marketing",
       "deliveryDays": 14,
       "revisions": 4,
-      "imageCell": 2,
       "includes": [
         "Klaviyo account and store integration",
         "Email template design",
         "Welcome and follow-up flow planning",
         "Campaign and flow testing"
       ],
-      "group": "Marketing & Growth"
+      "group": "Marketing & Growth",
+      "image": "assets/services/photos/content-workspace.jpg",
+      "imageAlt": "A desk with a printed notebook, buttons, and creative materials"
     },
     {
       "title": "Analytics & Tracking Setup",
@@ -51,14 +54,15 @@ window.BOBBY_DATA = {
       "category": "Analytics & measurement",
       "deliveryDays": 5,
       "revisions": 5,
-      "imageCell": 8,
       "includes": [
         "Measurement and event planning",
         "GA4 configuration",
         "Google Tag Manager setup",
         "Key event validation and handover"
       ],
-      "group": "Analytics & Integrations"
+      "group": "Analytics & Integrations",
+      "image": "assets/services/photos/digital-device.jpg",
+      "imageAlt": "A laptop photographed with colorful screen lighting"
     },
     {
       "title": "Content Marketing & Blogging",
@@ -66,14 +70,15 @@ window.BOBBY_DATA = {
       "category": "Content & visibility",
       "deliveryDays": 21,
       "revisions": 2,
-      "imageCell": 7,
       "includes": [
         "Topic and keyword research",
         "Content calendar planning",
         "Blog and landing-page content",
         "Content formatting and on-page optimization"
       ],
-      "group": "Marketing & Growth"
+      "group": "Marketing & Growth",
+      "image": "assets/services/photos/brand-content.jpg",
+      "imageAlt": "A creative workspace with printed design materials and stationery"
     },
     {
       "title": "Backlinking & Off-Page SEO",
@@ -81,14 +86,15 @@ window.BOBBY_DATA = {
       "category": "Search & visibility",
       "deliveryDays": 7,
       "revisions": 3,
-      "imageCell": 1,
       "includes": [
         "Existing backlink profile review",
         "Relevant outreach opportunity research",
         "Business listing consistency checks",
         "Outreach plan and progress reporting"
       ],
-      "group": "Marketing & Growth"
+      "group": "Marketing & Growth",
+      "image": "assets/services/photos/creative-workspace.jpg",
+      "imageAlt": "A workspace with pencils, rulers, and design equipment"
     },
     {
       "title": "App & Plugin Integration",
@@ -96,14 +102,15 @@ window.BOBBY_DATA = {
       "category": "Apps & integrations",
       "deliveryDays": 10,
       "revisions": 4,
-      "imageCell": 9,
       "includes": [
         "Integration and compatibility review",
         "Approved app or plugin configuration",
         "Agreed customer flow testing",
         "Requirements and handover documentation"
       ],
-      "group": "Analytics & Integrations"
+      "group": "Analytics & Integrations",
+      "image": "assets/services/photos/digital-device.jpg",
+      "imageAlt": "A laptop photographed with colorful screen lighting"
     },
     {
       "title": "Payment Gateway & Checkout",
@@ -111,14 +118,15 @@ window.BOBBY_DATA = {
       "category": "Checkout & payments",
       "deliveryDays": 14,
       "revisions": 5,
-      "imageCell": 0,
       "includes": [
         "Supported provider and platform review",
         "Payment link or gateway integration",
         "Checkout settings and usability checks",
         "Agreed test flow and handover"
       ],
-      "group": "Analytics & Integrations"
+      "group": "Analytics & Integrations",
+      "image": "assets/banners/ecommerce-workspace.jpg",
+      "imageAlt": "A flat-lay photograph of products, a smartphone, and accessories"
     },
     {
       "title": "Conversion Funnel Optimization",
@@ -126,14 +134,15 @@ window.BOBBY_DATA = {
       "category": "Conversion & customer journeys",
       "deliveryDays": 5,
       "revisions": 2,
-      "imageCell": 8,
       "includes": [
         "Customer journey review",
         "Landing and product-page recommendations",
         "Call-to-action and layout improvements",
         "Agreed funnel implementation and testing"
       ],
-      "group": "Marketing & Growth"
+      "group": "Marketing & Growth",
+      "image": "assets/banners/design-workspace.jpg",
+      "imageAlt": "A laptop and mouse on a wooden office desk"
     },
     {
       "title": "Google Merchant & Analytics",
@@ -141,14 +150,15 @@ window.BOBBY_DATA = {
       "category": "Product discovery",
       "deliveryDays": 21,
       "revisions": 3,
-      "imageCell": 7,
       "includes": [
         "Merchant account setup guidance",
         "Product feed structure and checks",
         "Store and product information review",
         "Analytics connection and reporting setup"
       ],
-      "group": "Analytics & Integrations"
+      "group": "Analytics & Integrations",
+      "image": "assets/services/photos/product-research.jpg",
+      "imageAlt": "A collection of camera products displayed for comparison"
     },
     {
       "title": "Google Search Console",
@@ -156,14 +166,15 @@ window.BOBBY_DATA = {
       "category": "Search & visibility",
       "deliveryDays": 7,
       "revisions": 4,
-      "imageCell": 1,
       "includes": [
         "Property verification guidance",
         "Sitemap review and submission",
         "Indexing and coverage checks",
         "Search performance handover"
       ],
-      "group": "Analytics & Integrations"
+      "group": "Analytics & Integrations",
+      "image": "assets/banners/design-workspace.jpg",
+      "imageAlt": "A laptop and mouse on a wooden office desk"
     },
     {
       "title": "Dropshipping Solutions",
@@ -171,14 +182,15 @@ window.BOBBY_DATA = {
       "category": "Ecommerce setup",
       "deliveryDays": 10,
       "revisions": 5,
-      "imageCell": 7,
       "includes": [
         "Product and supplier research",
         "Store and collection setup",
         "Agreed supplier tool integration",
         "Order flow and launch checks"
       ],
-      "group": "Websites & Stores"
+      "group": "Websites & Stores",
+      "image": "assets/services/photos/store-products.jpg",
+      "imageAlt": "A photographed sneaker product on a bright studio background"
     },
     {
       "title": "Multi Channel Marketing",
@@ -186,14 +198,15 @@ window.BOBBY_DATA = {
       "category": "Marketing & advertising",
       "deliveryDays": 14,
       "revisions": 2,
-      "imageCell": 9,
       "includes": [
         "Channel and audience planning",
         "Campaign messaging and creative direction",
         "Tracking and landing-page alignment",
         "Campaign setup within agreed scope"
       ],
-      "group": "Marketing & Growth"
+      "group": "Marketing & Growth",
+      "image": "assets/services/photos/brand-content.jpg",
+      "imageAlt": "A creative workspace with printed design materials and stationery"
     },
     {
       "title": "AI Shopping Optimization",
@@ -201,14 +214,15 @@ window.BOBBY_DATA = {
       "category": "AI & customer experience",
       "deliveryDays": 5,
       "revisions": 3,
-      "imageCell": 3,
       "includes": [
         "Store and customer journey review",
         "Recommendation tool assessment",
         "Supported product discovery integration",
         "Experience testing and handover"
       ],
-      "group": "AI & Automation"
+      "group": "AI & Automation",
+      "image": "assets/services/photos/digital-device.jpg",
+      "imageAlt": "A laptop photographed with colorful screen lighting"
     },
     {
       "title": "TikTok Shop",
@@ -216,14 +230,15 @@ window.BOBBY_DATA = {
       "category": "Social commerce",
       "deliveryDays": 21,
       "revisions": 4,
-      "imageCell": 0,
       "includes": [
         "Business and region eligibility review",
         "Shop setup guidance",
         "Product catalog organization",
         "Storefront and shopping flow checks"
       ],
-      "group": "Websites & Stores"
+      "group": "Websites & Stores",
+      "image": "assets/services/photos/store-products.jpg",
+      "imageAlt": "A photographed sneaker product on a bright studio background"
     },
     {
       "title": "Instagram Shop",
@@ -231,14 +246,15 @@ window.BOBBY_DATA = {
       "category": "Social commerce",
       "deliveryDays": 7,
       "revisions": 5,
-      "imageCell": 0,
       "includes": [
         "Account and eligibility review",
         "Product catalog connection",
         "Shopping setup and product-tag guidance",
         "Catalog and display checks"
       ],
-      "group": "Websites & Stores"
+      "group": "Websites & Stores",
+      "image": "assets/services/photos/product-research.jpg",
+      "imageAlt": "A collection of camera products displayed for comparison"
     },
     {
       "title": "Facebook Shop",
@@ -246,14 +262,15 @@ window.BOBBY_DATA = {
       "category": "Social commerce",
       "deliveryDays": 10,
       "revisions": 2,
-      "imageCell": 0,
       "includes": [
         "Business account and eligibility review",
         "Commerce catalog configuration",
         "Store and product information setup",
         "Product display and connection checks"
       ],
-      "group": "Websites & Stores"
+      "group": "Websites & Stores",
+      "image": "assets/services/photos/store-products.jpg",
+      "imageAlt": "A photographed sneaker product on a bright studio background"
     },
     {
       "title": "Google Ads",
@@ -261,14 +278,15 @@ window.BOBBY_DATA = {
       "category": "Paid advertising",
       "deliveryDays": 14,
       "revisions": 3,
-      "imageCell": 8,
       "includes": [
         "Audience and keyword planning",
         "Campaign and ad-group structure",
         "Ad copy and creative coordination",
         "Conversion tracking and initial review"
       ],
-      "group": "Marketing & Growth"
+      "group": "Marketing & Growth",
+      "image": "assets/banners/design-workspace.jpg",
+      "imageAlt": "A laptop and mouse on a wooden office desk"
     },
     {
       "title": "Pinterest Marketing",
@@ -276,14 +294,15 @@ window.BOBBY_DATA = {
       "category": "Social marketing",
       "deliveryDays": 5,
       "revisions": 4,
-      "imageCell": 5,
       "includes": [
         "Audience and keyword research",
         "Board and Pin content planning",
         "Product and website connection review",
         "Campaign setup within agreed scope"
       ],
-      "group": "Marketing & Growth"
+      "group": "Marketing & Growth",
+      "image": "assets/services/photos/brand-content.jpg",
+      "imageAlt": "A creative workspace with printed design materials and stationery"
     },
     {
       "title": "Product Research & Validation",
@@ -291,14 +310,15 @@ window.BOBBY_DATA = {
       "category": "Product strategy",
       "deliveryDays": 21,
       "revisions": 5,
-      "imageCell": 7,
       "includes": [
         "Product and competitor research",
         "Audience and positioning review",
         "Catalog and collection recommendations",
         "Research findings and next-step plan"
       ],
-      "group": "Support & Strategy"
+      "group": "Support & Strategy",
+      "image": "assets/services/photos/product-research.jpg",
+      "imageAlt": "A collection of camera products displayed for comparison"
     },
     {
       "title": "Store Maintenance & Support",
@@ -306,14 +326,15 @@ window.BOBBY_DATA = {
       "category": "Ongoing support",
       "deliveryDays": 7,
       "revisions": 2,
-      "imageCell": 11,
       "includes": [
         "Agreed update and support scope",
         "Content and catalog updates",
         "Issue diagnosis and prioritization",
         "Clear record of completed work"
       ],
-      "group": "Support & Strategy"
+      "group": "Support & Strategy",
+      "image": "assets/founder-desk.jpg",
+      "imageAlt": "Timmy, the founder of Bobbyagency, working at his desk"
     },
     {
       "title": "Complete Auto Revenue Sales Funnel",
@@ -321,14 +342,15 @@ window.BOBBY_DATA = {
       "category": "Sales funnels & automation",
       "deliveryDays": 10,
       "revisions": 3,
-      "imageCell": 8,
       "includes": [
         "Customer journey and offer planning",
         "Landing page and lead-capture setup",
         "Supported follow-up automation",
         "End-to-end funnel checks and handover"
       ],
-      "group": "Marketing & Growth"
+      "group": "Marketing & Growth",
+      "image": "assets/services/photos/creative-workspace.jpg",
+      "imageAlt": "A workspace with pencils, rulers, and design equipment"
     },
     {
       "title": "Agentic AI Optimization",
@@ -336,14 +358,15 @@ window.BOBBY_DATA = {
       "category": "AI & automation",
       "deliveryDays": 14,
       "revisions": 4,
-      "imageCell": 3,
       "includes": [
         "Workflow and tool assessment",
         "AI assistant or agent configuration",
         "Supported app and data connections",
         "Testing and human handover guidance"
       ],
-      "group": "AI & Automation"
+      "group": "AI & Automation",
+      "image": "assets/services/photos/digital-device.jpg",
+      "imageAlt": "A laptop photographed with colorful screen lighting"
     },
     {
       "title": "Ecommerce Growth Consulting",
@@ -351,14 +374,15 @@ window.BOBBY_DATA = {
       "category": "Strategy & consulting",
       "deliveryDays": 5,
       "revisions": 5,
-      "imageCell": 10,
       "includes": [
         "Business goals and current-state review",
         "Store and customer journey assessment",
         "Channel and platform recommendations",
         "Prioritized action plan and discussion"
       ],
-      "group": "Support & Strategy"
+      "group": "Support & Strategy",
+      "image": "assets/founder-desk.jpg",
+      "imageAlt": "Timmy, the founder of Bobbyagency, working at his desk"
     },
     {
       "title": "WordPress & WooCommerce",
@@ -373,8 +397,9 @@ window.BOBBY_DATA = {
       ],
       "deliveryDays": 14,
       "revisions": 2,
-      "imageCell": 4,
-      "group": "Websites & Stores"
+      "group": "Websites & Stores",
+      "image": "assets/banners/design-workspace.jpg",
+      "imageAlt": "A laptop and mouse on a wooden office desk"
     },
     {
       "title": "Wix & Webflow Websites",
@@ -389,8 +414,9 @@ window.BOBBY_DATA = {
       ],
       "deliveryDays": 10,
       "revisions": 3,
-      "imageCell": 5,
-      "group": "Websites & Stores"
+      "group": "Websites & Stores",
+      "image": "assets/services/photos/digital-device.jpg",
+      "imageAlt": "A laptop photographed with colorful screen lighting"
     },
     {
       "title": "Website & Store Migration",
@@ -405,8 +431,9 @@ window.BOBBY_DATA = {
       ],
       "deliveryDays": 14,
       "revisions": 4,
-      "imageCell": 6,
-      "group": "Websites & Stores"
+      "group": "Websites & Stores",
+      "image": "assets/services/photos/digital-device.jpg",
+      "imageAlt": "A laptop photographed with colorful screen lighting"
     },
     {
       "title": "Local Business Presence",
@@ -421,8 +448,9 @@ window.BOBBY_DATA = {
       ],
       "deliveryDays": 7,
       "revisions": 5,
-      "imageCell": 10,
-      "group": "Support & Strategy"
+      "group": "Support & Strategy",
+      "image": "assets/founder-desk.jpg",
+      "imageAlt": "Timmy, the founder of Bobbyagency, working at his desk"
     }
   ],
   "projects": [
@@ -522,5 +550,13 @@ window.BOBBY_DATA = {
         "Migration"
       ]
     }
-  ]
+  ],
+  "businessMetrics": {
+    "totalProjects": 250,
+    "totalProjectsAtLeast": true,
+    "countriesServed": null,
+    "successRate": 100,
+    "successRateLabel": "Upwork Job Success",
+    "successBasis": "Upwork Job Success score"
+  }
 };

@@ -140,12 +140,11 @@ function showService(index) {
   $('#service-category').textContent = service.category.toUpperCase();
   $('#service-description').textContent = service.desc;
   const serviceImage = $('#service-dialog-image');
-  serviceImage.src = 'assets/services/service-photography.png';
-  serviceImage.classList.add('service-photo');
-  const imageCell = service.imageCell ?? (index % 12);
-  serviceImage.style.setProperty('--photo-col', String(imageCell % 3));
-  serviceImage.style.setProperty('--photo-row', String(Math.floor(imageCell / 3)));
-  serviceImage.alt = `${service.title} service illustration`;
+  serviceImage.src = service.image;
+  serviceImage.className = 'service-real-photo';
+  serviceImage.style.removeProperty('--photo-col');
+  serviceImage.style.removeProperty('--photo-row');
+  serviceImage.alt = service.imageAlt;
   $('#service-dialog-package').replaceChildren();
   for (const text of [`Est. ${service.deliveryDays} days`, `Up to ${service.revisions} revisions`]) {
     const item = document.createElement('span');
@@ -492,11 +491,11 @@ if (serviceFinder) {
     const matches = cards.map((card, index) => ({ card, service: services[index] }))
       .filter(({ service }) => (selectedGroup === 'All services' || service.group === selectedGroup)
         && `${service.title} ${service.desc} ${service.category}`.toLowerCase().includes(query));
-    const visible = new Set((showAll ? matches : matches.slice(0, 6)).map(item => item.card));
+    const visible = new Set((showAll ? matches : matches.slice(0, 9)).map(item => item.card));
     cards.forEach(card => { card.hidden = !visible.has(card); });
     $('#service-results-count').textContent = `Showing ${visible.size} of ${matches.length} services`;
     $('.service-empty').hidden = matches.length !== 0;
-    showAllButton.hidden = matches.length <= 6;
+    showAllButton.hidden = matches.length <= 9;
     showAllButton.textContent = showAll ? 'Show fewer services' : `View all ${matches.length} services`;
     showAllButton.setAttribute('aria-expanded', String(showAll));
     $$('[data-service-filter]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.serviceFilter === selectedGroup)));
@@ -523,3 +522,99 @@ if (serviceFinder) {
   });
   renderServices();
 }
+
+// Display business totals only when supplied; otherwise use factual portfolio context.
+const businessMetrics = window.BOBBY_DATA.businessMetrics || {};
+const metricDetails = {
+  totalProjects: ['Total projects', 'Across previous client engagements'],
+  countriesServed: ['Countries served', 'Client locations served'],
+  successRate: [businessMetrics.successRateLabel || 'Success rate', businessMetrics.successBasis || 'Reported project outcomes']
+};
+Object.entries(metricDetails).forEach(([key, [label, note]]) => {
+  const value = businessMetrics[key];
+  const card = $(`[data-business-metric="${key}"]`);
+  if (!card) return;
+  if (value === null || value === undefined || !Number.isFinite(Number(value)) || Number(value) < 0) return;
+  if (key === 'successRate' && Number(value) > 100) return;
+  $('[data-metric-value]', card).textContent = `${Number(value).toLocaleString('en-US')}${key === 'successRate' ? '%' : key === 'totalProjects' && businessMetrics.totalProjectsAtLeast ? '+' : ''}`;
+  $('[data-metric-label]', card).textContent = label;
+  $('[data-metric-note]', card).textContent = note;
+});
+
+// Staggered reveals and counters run once in view, and never hide reduced-motion content.
+const revealCards = $$('.trust-card, .portfolio-stat-card, .service-card, .project-process-grid article');
+let cardRevealObserver;
+function initializeCardMotion() {
+  cardRevealObserver?.disconnect();
+  revealCards.forEach((card, index) => {
+    card.style.setProperty('--reveal-delay', `${(index % 3) * 85}ms`);
+    card.classList.add('motion-reveal');
+    if (reducedMotion.matches) {
+      card.classList.remove('reveal-ready');
+      card.classList.add('is-revealed');
+    }
+  });
+  if (reducedMotion.matches) return;
+  cardRevealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-revealed');
+      cardRevealObserver.unobserve(entry.target);
+    });
+  }, { threshold: 0.12 });
+  revealCards.forEach(card => {
+    if (!card.classList.contains('is-revealed')) {
+      card.classList.add('reveal-ready');
+      cardRevealObserver.observe(card);
+    }
+  });
+}
+initializeCardMotion();
+reducedMotion.addEventListener('change', initializeCardMotion);
+
+const countCards = $$('[data-business-metric]').filter(card => {
+  const value = businessMetrics[card.dataset.businessMetric];
+  return value !== null && value !== undefined && Number.isFinite(Number(value));
+});
+const counterFrames = new Map();
+function counterText(card, value) {
+  const key = card.dataset.businessMetric;
+  return `${value.toLocaleString('en-US')}${key === 'successRate' ? '%' : key === 'totalProjects' && businessMetrics.totalProjectsAtLeast ? '+' : ''}`;
+}
+function finishCounter(card) {
+  if (counterFrames.has(card)) cancelAnimationFrame(counterFrames.get(card));
+  counterFrames.delete(card);
+  $('[data-metric-value]', card).textContent = counterText(card, Number(businessMetrics[card.dataset.businessMetric]));
+  card.dataset.counted = 'true';
+}
+function animateCounter(card) {
+  if (card.dataset.counted === 'true' || reducedMotion.matches) { finishCounter(card); return; }
+  card.dataset.counted = 'true';
+  const target = Number(businessMetrics[card.dataset.businessMetric]);
+  const output = $('[data-metric-value]', card);
+  output.setAttribute('aria-label', counterText(card, target));
+  const began = performance.now();
+  function frame(now) {
+    const progress = Math.min(1, (now - began) / 1500);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    output.textContent = counterText(card, Math.round(target * eased));
+    if (progress < 1 && !reducedMotion.matches) counterFrames.set(card, requestAnimationFrame(frame));
+    else finishCounter(card);
+  }
+  counterFrames.set(card, requestAnimationFrame(frame));
+}
+const counterObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCounter(entry.target);
+      counterObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.55 });
+countCards.forEach(card => reducedMotion.matches ? finishCounter(card) : counterObserver.observe(card));
+reducedMotion.addEventListener('change', event => {
+  if (event.matches) {
+    counterObserver.disconnect();
+    countCards.forEach(finishCounter);
+  }
+});

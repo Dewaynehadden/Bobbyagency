@@ -7,19 +7,17 @@ with sync_playwright() as p:
  errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
  page.goto('http://127.0.0.1:3001/',wait_until='networkidle')
  page.locator('#service-show-all').click()
- images=page.locator('.service-card img.service-photo')
+ images=page.locator('.service-card img.service-real-photo')
  catalog=page.evaluate('window.BOBBY_DATA.services')
  assert images.count()==len(catalog)
  for i,img in enumerate(images.all()):
   img.evaluate('(i)=>{i.loading="eager";return i.decode()}')
-  assert img.evaluate('(i)=>i.naturalWidth===1536 && i.naturalHeight===1024')
-  assert img.evaluate('(i)=>i.style.getPropertyValue("--photo-col")')==str(catalog[i]['imageCell']%3)
-  assert img.evaluate('(i)=>i.style.getPropertyValue("--photo-row")')==str(catalog[i]['imageCell']//3)
+  assert img.evaluate('(i)=>i.naturalWidth>300 && i.naturalHeight>200')
+  assert img.get_attribute('src')==catalog[i]['image']
   page.locator('.service-card .learn-more').nth(i).click()
   modal=page.locator('#service-dialog-image')
   modal.evaluate('(i)=>i.decode()')
-  assert modal.evaluate('(i)=>i.style.getPropertyValue("--photo-col")')==str(catalog[i]['imageCell']%3)
-  assert modal.evaluate('(i)=>i.style.getPropertyValue("--photo-row")')==str(catalog[i]['imageCell']//3)
+  assert modal.get_attribute('src')==catalog[i]['image']
   page.keyboard.press('Escape')
  print('PASS: All matching service photos and modal views.',flush=True)
  page.locator('#team').scroll_into_view_if_needed()

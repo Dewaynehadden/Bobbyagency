@@ -80,7 +80,7 @@ The `#sales-proof` section contains eight uploaded Shopify dashboard recordings 
 
 ## Service images and rotating expertise wheel
 
-All twelve service cards and detail dialogs use distinct service-specific generated photography-style illustrations. One local image sheet (`assets/services/service-photography.png`) supplies the twelve views through CSS positioning, keeping downloads shared across the cards. These images illustrate service types and do not depict claimed client projects.
+All 28 service cards and detail dialogs use locally hosted photographic images, with credits in `assets/services/photos/ATTRIBUTION.md`. These are illustrative stock and previously supplied founder photographs, not claimed client projects. The earlier generated image sheet is retained as an unused historical asset.
 
 The outer expertise wheel rotates once every 60 seconds (about 10 seconds between the six service positions); the founder stays fixed and each service label counter-rotates to stay upright. Hovering or focusing within the wheel pauses it. A Pause/Resume control is provided, and system reduced-motion preferences disable rotation. Skill buttons continue to open service details. These updates are included in the website release.
 
@@ -96,4 +96,10 @@ Services includes all 24 offerings reviewed on the reference site plus four reta
 
 ## Client-journey polish
 
-The service finder groups all 28 services into five categories, with text search and an expand/collapse control. Six cards are initially shown; every service remains available and the full catalogue is visible without JavaScript. Prominent project buttons share the Fiverr/Upwork/Paystack quote-choice dialog, with an optional email brief. The floating WhatsApp action opens the real chat link. A three-step project process explains discovery, agreed scope/build, and launch/handover. Mobile contact clutter is reduced, and sharing metadata identifies the canonical public website and founder image. Run `python3 scripts/client_journey.py` for targeted validation.
+The service finder groups all 28 services into five categories, with text search and an expand/collapse control. Nine cards are initially shown; every service remains available and the full catalogue is visible without JavaScript. Prominent project buttons share the Fiverr/Upwork/Paystack quote-choice dialog, with an optional email brief. The floating WhatsApp action opens the real chat link. A three-step project process explains discovery, agreed scope/build, and launch/handover. Mobile contact clutter is reduced, and sharing metadata identifies the canonical public website and founder image. Run `python3 scripts/client_journey.py` for targeted validation.
+
+## Trust cards, business summary, and motion
+
+The trust section uses six white cards with filled gold/charcoal badge images and links to real payment, scope, contact, revision, and refund information. The portfolio summary uses owner-provided figures: 250+ projects across previous client engagements and a 100% Upwork Job Success score. No country count was supplied, so reach remains “Global.” These are owner-provided claims, not independently audited metrics.
+
+Nine photographic service cards are initially visible; all 28 remain available through the finder. Cards reveal in staggered groups, badge images bounce on entry and flip on hover, and the project/Upwork counters count up once in view to their supplied values. Text and action targets stay readable. Reduced-motion preferences show the final values and disable these effects. Validation is in `scripts/trust_portfolio.py` and `scripts/motion.py`.

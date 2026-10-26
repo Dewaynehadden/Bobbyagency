@@ -63,3 +63,7 @@ Checked all 39 tools, every specifically requested platform, six category groups
 ## Client-journey polish
 
 Validated category filtering, search, all-service expansion/collapse, empty-state recovery, retained service-specific quotes, general project quotes and email fallback, mobile menu dismissal, three-step process, canonical/social metadata, WhatsApp destination, all 28 services without JavaScript, and six responsive widths. All 28 service detail/quote flows and service images passed. Wheel motion, pause, reduced-motion, and responsive checks passed. Service hover displacement was replaced with a stable highlight so quote buttons remain steady.
+
+## Trust, portfolio summary, real photos, and motion
+
+Validated six illustrated trust cards and their policy/contact/payment destinations; owner-provided 250+ project and 100% Upwork Job Success values; a nonnumeric Global reach card; nine initial service cards with all 28 retained; more than four distinct photographic images; matching service detail images; and layouts at six responsive widths. Motion checks covered reveal, bounce/flip behavior, count-up to accurate endpoints, no repeat counting, constant accessible labels, reduced-motion visibility, and no JavaScript/resource errors. All 28 quote/detail flows also passed after the image change.

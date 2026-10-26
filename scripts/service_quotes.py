@@ -19,8 +19,7 @@ with sync_playwright() as p:
   card.locator('.learn-more').click()
   assert page.locator('#service-title').inner_text()==service['title']
   assert page.locator('#service-includes li').count()==4
-  cell=service['imageCell']
-  assert page.locator('#service-dialog-image').evaluate('(i)=>i.style.getPropertyValue("--photo-row")')==str(cell//3)
+  assert page.locator('#service-dialog-image').get_attribute('src')==service['image']
   page.locator('#service-modal-quote').click()
   assert page.locator('#quote-service-name').inner_text()==service['title']
   assert page.locator('#quote-dialog .quote-fiverr').get_attribute('href')=='https://www.fiverr.com/emiloloruntinmy'

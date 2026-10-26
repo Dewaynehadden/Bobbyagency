@@ -8,24 +8,23 @@ with sync_playwright() as p:
  errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
  assert page.goto('http://127.0.0.1:3001/',wait_until='networkidle').status==200
  assert page.locator('.service-card').count()==28
- assert page.locator('.service-card:visible').count()==6
- assert page.locator('#service-results-count').inner_text()=='Showing 6 of 28 services'
+ assert page.locator('.service-card:visible').count()==9
+ assert page.locator('#service-results-count').inner_text()=='Showing 9 of 28 services'
  page.locator('#service-show-all').click()
  assert page.locator('.service-card:visible').count()==28
  page.locator('#service-show-all').click()
- assert page.locator('.service-card:visible').count()==6
+ assert page.locator('.service-card:visible').count()==9
  page.locator('[data-service-filter="AI & Automation"]').click()
  assert page.locator('.service-card:visible').count()==2
  assert not page.locator('#service-show-all').is_visible()
  page.locator('[data-service-filter="Marketing & Growth"]').click()
- assert page.locator('.service-card:visible').count()==6
- page.locator('#service-show-all').click()
  assert page.locator('.service-card:visible').count()==9
+ assert not page.locator('#service-show-all').is_visible()
  page.locator('#service-search').fill('not-matching-123')
  assert page.locator('.service-empty').is_visible()
  assert page.locator('.service-card:visible').count()==0
  page.locator('#reset-services').click()
- assert page.locator('.service-card:visible').count()==6
+ assert page.locator('.service-card:visible').count()==9
  page.locator('#service-search').fill('migration')
  assert page.locator('.service-card:visible').count()==1
  assert page.locator('.service-card:visible h3').inner_text()=='Website & Store Migration'
