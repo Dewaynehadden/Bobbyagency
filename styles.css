@@ -289,3 +289,23 @@ html{scroll-padding-top:calc(var(--header-height) + var(--announcement-height) +
 @media(max-width:480px) { .review-summary-card { padding:58px 10px 20px; }.review-summary-card span { font-size:11px; }.review-summary-card small { font-size:9px; }.featured-review { padding:22px; }.review-card-footer { font-size:10px; } }
 
 .featured-review .review-person { display:flex;gap:12px;align-items:center; }.review-person b { display:block;font-size:12px; }.review-person small { display:block;color:var(--muted);margin-top:3px; }
+
+/* Shared day/night preference for desktop, mobile and policy pages. */
+.theme-toggle { flex-shrink:0;display:grid;place-items:center;width:40px;height:40px;padding:0;border:1px solid #776132;border-radius:50%;color:#ffd35a;background:#23221e;order:3; }
+.theme-symbol { font-size:25px;line-height:1; }
+.theme-toggle:hover { background:#393025; }
+:root[data-theme="dark"] { --ink:#edf0f8;--muted:#b5c0d6;--warm:#151b26;--paper:#1d2533;--border:#384153;--shadow:0 12px 30px #0003;--gold-deep:#ffd15b; }
+html[data-theme="dark"] body { background:#10141d;color:var(--ink); }
+html[data-theme="dark"] :is(.outline-dark,.skip-link,.hero-carousel,.audit-input,.service-card,.founder-center,.portfolio-stats>div,.portfolio-search,.project-card,.project-open,.showcase-section,.showcase-tabs button,.showcase-screen,.review-card,.faq-list details,.contact-card,.modal,.story-card,.sales-summary-card,.sales-video-card,.platform-directory-grid li,.quote-channel,.service-filter-button,.service-search,.trust-card,.portfolio-stat-card,.review-summary-card,.review-arrows .icon-button,.media-controls>.icon-button) { background:#1d2533;color:var(--ink);border-color:var(--border); }
+html[data-theme="dark"] :is(input,select,textarea) { background:#151b26;color:var(--ink);border-color:var(--border); }
+html[data-theme="dark"] :is(.audit-input input,.portfolio-search input,.service-search input) { background:transparent; }
+html[data-theme="dark"] :is(.text-link,.eyebrow,.learn-more,.project-idea-quote,.review-card-footer a,.review-source a) { color:#ffd15b; }
+html[data-theme="dark"] :is(.review-card-footer span,.review-avatar) { background:#3d321b;color:#ffda76; }
+html[data-theme="dark"] .review-card-footer { border-color:var(--border); }
+html[data-theme="dark"] .modal-close { background:#303a4b;color:#fff; }
+html[data-theme="dark"] .service-filter-button[aria-pressed="true"] { background:#ffcf45;color:#231b0b; }
+html[data-theme="dark"] :is(.policy-content,.legal-toc) { color:var(--ink); }
+html[data-theme="dark"] .legal-toc { background:#1d2533;border-color:var(--border); }
+html[data-theme="dark"] .theme-toggle { background:#323b4d;color:#ffda76; }
+@media(max-width:1100px) { .theme-toggle { margin-left:auto;order:0; }.menu-toggle { margin-left:0; } }
+@media(max-width:480px) { .theme-toggle { width:36px;height:36px; }.header-actions { display:none; }.nav-container { gap:10px; } }

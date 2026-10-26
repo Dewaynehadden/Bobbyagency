@@ -76,3 +76,6 @@ Original sales recordings restored (2026-10-26): all eight sales videos are byte
 
 
 Client review layout (2026-10-26): reference-inspired gold summary cards and source-linked written review carousel. Uses the three existing review excerpts unchanged, nine existing video stories, owner-reported Upwork Job Success, and global remote collaboration. No third-party names, ratings, flags, dates, or review totals were invented. Browser verification: scripts/reviews_layout.py covers arrows, keyboard End, responsive widths, image loading, and preservation of existing videos.
+
+
+Day/night mode (2026-10-26): shared theme.js applies the saved preference before CSS, defaults to the device color scheme, and synchronizes tabs. A labeled header button is available on desktop and mobile on both homepage and policy page. Photos and video pixels remain unchanged. Verified with scripts/theme.py: persistence, both pages, quote dialog, mobile menu, and ten widths from 320 to 1920px.
