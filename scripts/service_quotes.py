@@ -24,7 +24,7 @@ with sync_playwright() as p:
   assert page.locator('#quote-service-name').inner_text()==service['title']
   assert page.locator('#quote-dialog .quote-fiverr').get_attribute('href')=='https://www.fiverr.com/emiloloruntinmy'
   assert page.locator('#quote-dialog .quote-upwork').get_attribute('href')=='https://www.upwork.com/freelancers/~01d8f8c1ff8dccffea'
-  assert page.locator('#quote-dialog .quote-payment a').get_attribute('href')=='https://paystack.shop/pay/wd0c70e6o9'
+  assert page.locator('#quote-dialog .quote-payment a').get_attribute('href')=='payment.html#start-project'
   page.keyboard.press('Escape')
   if index in [0,12,27]:
    card.locator('.service-quote').click()

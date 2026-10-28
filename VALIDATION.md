@@ -82,3 +82,6 @@ Day/night mode (2026-10-26): shared theme.js applies the saved preference before
 
 
 Installable app (2026-10-26): scripts/pwa.py passed manifest/icon checks, worker activation, install guide on homepage/policy pages, 320–1440px layouts, offline fallback and successful retry after reconnection, with no JavaScript errors. scripts/theme.py also passed. Physical Android/iPhone installation was not performed in this environment.
+
+
+Pricing and payments (28 October 2026): payment.html adapts the owner’s BobbyDev pricing/payment reference into Bobbyagency styling, with Basic $250, Standard $500 and Premium $1,500 starting packages, a prepared-email message form, deposit/balance reference amounts, public Paystack checkout, original Wema Bank details, refund links and four payment steps. Homepage/policy Pricing and Make a Payment links and quote-dialog payment action now lead to the dedicated page. PayPal/crypto are explicitly request-only because no destinations are configured. No fixed FX conversion, secret API key, automatic payment verification, or unconfirmed discount is used. scripts/payments.py passed pricing, selected-package email, reference amount controls, hosted checkout destination, request-only options, keyboard tabs, day/night and 320–1440px layouts. No real transaction was attempted.
