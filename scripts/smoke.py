@@ -24,6 +24,8 @@ with sync_playwright() as p:
     failed_resources = []
     page.on('pageerror', lambda error: errors.append(str(error)))
     page.on('response', lambda response: failed_resources.append(f'{response.status}: {response.url}') if response.status >= 400 and response.url.startswith(base) else None)
+    # General storefront checks use the manual fallback; measured audits have their own mocked test.
+    page.route('**/audit-config.js*', lambda route: route.fulfill(content_type='text/javascript', body="window.BOBBY_AUDIT={endpoint:''};"))
     response = page.goto(base, wait_until='networkidle')
     assert response.status == 200
     assert page.title().startswith('Bobbyagency')

@@ -111,6 +111,9 @@ def analyse(url,text):
  reviews=sum(c['status'] in ('review','needs_attention') for c in checks)
  return {'schema_version':2,'source':'server_html','url':url,'checked_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'title':title[:180],'passed':passed,'assessed':len(assessed),'review_count':reviews,'inconclusive_count':sum(c['status']=='not_assessed' for c in checks),'possible_client_rendering':client_shell,'checks':checks,'limitations':'HTML observations from one public page, not a full-site audit or website quality score. JavaScript was not executed. Speed/Core Web Vitals, visual layout, actual mobile usability, accessibility compliance, security and conversion performance were not measured. Review suggestions need confirmation in a browser; missing optional metadata is not automatically a fault. '+('This page appears to rely on client-side rendering; absent features are inconclusive. ' if client_shell else '')+'Observed markup does not guarantee rankings or sales.'}
 def report_text(report,name):
+ if report.get('source')=='google_pagespeed':
+  from pagespeed import text_report
+  return text_report(report,name)
  lines=['Hi '+name+',','','Your Bobbyagency basic website audit is ready.',report['url'],'Checked: '+report['checked_at'],'',str(len(report['checks']))+' HTML observations; '+str(report.get('review_count',0))+' items to review. This is not an overall website score.','']
  for check in report['checks']:
   lines.extend([check['name']+' — '+('observed in HTML' if check['status']=='pass' else check['status'].replace('_',' ')),check['evidence']])

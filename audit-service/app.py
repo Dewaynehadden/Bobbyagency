@@ -3,6 +3,7 @@ import datetime,json,os,re,smtplib,ssl,threading,time,urllib.request
 from urllib.parse import urlsplit
 from email.message import EmailMessage
 from auditor import AuditError,fetch_public,analyse,report_text
+from jobs import start_job,read_job
 ORIGIN=os.environ.get('AUDIT_ALLOWED_ORIGIN','https://dewaynehadden.github.io')
 MAIL_LOCK=threading.Lock();TIMES={};DAILY=[];SLOTS=threading.BoundedSemaphore(2)
 EMAIL=re.compile(r'^[^\s@<>\r\n]+@[^\s@<>\r\n]+\.[^\s@<>\r\n]+$')
@@ -29,12 +30,22 @@ def application(env,start):
  origin=env.get('HTTP_ORIGIN','');method=env.get('REQUEST_METHOD','GET');path=env.get('PATH_INFO','/')
  def reply(status,data):
   body=json.dumps(data).encode();headers=[('Content-Type','application/json'),('Content-Length',str(len(body))),('Cache-Control','no-store'),('X-Content-Type-Options','nosniff'),('Vary','Origin')]
-  if origin==ORIGIN:headers += [('Access-Control-Allow-Origin',ORIGIN),('Access-Control-Allow-Methods','POST, OPTIONS'),('Access-Control-Allow-Headers','Content-Type')]
-  start(str(status)+' '+{200:'OK',204:'No Content',400:'Bad Request',403:'Forbidden',404:'Not Found',405:'Method Not Allowed',413:'Content Too Large',429:'Too Many Requests',503:'Service Unavailable',502:'Bad Gateway'}.get(status,'Error'),headers);return [body]
+  if origin==ORIGIN:headers += [('Access-Control-Allow-Origin',ORIGIN),('Access-Control-Allow-Methods','GET, POST, OPTIONS'),('Access-Control-Allow-Headers','Content-Type')]
+  start(str(status)+' '+{200:'OK',202:'Accepted',204:'No Content',400:'Bad Request',403:'Forbidden',404:'Not Found',405:'Method Not Allowed',413:'Content Too Large',429:'Too Many Requests',503:'Service Unavailable',502:'Bad Gateway'}.get(status,'Error'),headers);return [body]
  if path=='/healthz':return reply(200,{'ok':True})
- if path!='/audit':return reply(404,{'error':'Not found.'})
+ if path!='/audit' and not path.startswith('/audit/jobs/'):return reply(404,{'error':'Not found.'})
  if origin!=ORIGIN:return reply(403,{'error':'Use the audit form on Bobbyagency.'})
  if method=='OPTIONS':return reply(200,{'ok':True})
+ if path.startswith('/audit/jobs/'):
+  parts=path.split('/')
+  if method!='GET':return reply(405,{'error':'Use GET to read a report.'})
+  if len(parts) not in (4,6) or not re.fullmatch(r'[A-Za-z0-9_-]{30,60}',parts[3]):return reply(404,{'error':'Report not found.'})
+  strategy=None
+  if len(parts)==6:
+   if parts[4]!='raw' or parts[5] not in ('mobile','desktop'):return reply(404,{'error':'Report not found.'})
+   strategy=parts[5]
+  job=read_job(parts[3],strategy)
+  return reply(200,job) if job else reply(404,{'error':'The requested measurement was not returned, or this report expired/restarted. Save downloads after testing to preserve them.'})
  if method!='POST':return reply(405,{'error':'Submit the audit form.'})
  try:
   size=int(env.get('CONTENT_LENGTH') or '0')
@@ -46,6 +57,7 @@ def application(env,start):
   if data.get('company') or data.get('consent') is not True or not 2<=len(name)<=100 or not EMAIL.fullmatch(email) or len(email)>254 or '\r' in name or '\n' in name:return reply(400,{'error':'Enter your name, a valid email address, and consent to this one-time report.'})
   required=['GOOGLE_MAIL_URL','GOOGLE_MAIL_TOKEN'] if os.environ.get('EMAIL_PROVIDER','smtp')=='google_script' else ['SMTP_HOST','SMTP_USER','SMTP_PASSWORD','SMTP_FROM']
   if not all(os.environ.get(k) for k in required):return reply(503,{'error':'Automatic report delivery is not active yet. Please request a personal review.'})
+  if data.get('engine')=='pagespeed' and not os.environ.get('PAGESPEED_API_KEY','').strip():return reply(503,{'error':'Google PageSpeed is not configured yet. Add PAGESPEED_API_KEY to the audit service; no measured scores are available.'})
   # Rate limits are per process; free instances reset them on restart.
   key=(env.get('REMOTE_ADDR','unknown'),email.lower());now=time.time()
   with MAIL_LOCK:
@@ -54,6 +66,14 @@ def application(env,start):
     if now-TIMES[old]>3600:del TIMES[old]
    if len(DAILY)>=int(os.environ.get('AUDIT_DAILY_LIMIT','30')) or any((k[0]==key[0] or k[1]==key[1]) and now-v<600 for k,v in TIMES.items()):return reply(429,{'error':'Please wait before requesting another report. If you already requested one, check your inbox and spam folder.'})
    TIMES[key]=now;DAILY.append(now)
+  if data.get('engine')=='pagespeed':
+   try:job_id=start_job(website,name,email,send_report)
+   except AuditError:
+    with MAIL_LOCK:
+     TIMES.pop(key,None)
+     if now in DAILY:DAILY.remove(now)
+    raise
+   return reply(202,{'job_id':job_id,'status':'queued'})
   if not SLOTS.acquire(blocking=False):return reply(503,{'error':'The audit service is busy. Please try again in a few minutes.'})
   try:
    url,text=fetch_public(website);report=analyse(url,text)

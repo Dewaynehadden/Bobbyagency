@@ -1,3 +1,7 @@
+# Current measured-audit setup
+
+The buyer form now uses Google PageSpeed Insights / Lighthouse, not the original HTML-only checklist. See **PAGESPEED-SETUP.md** for the additional API key, report sections, retention and activation tests. The older HTML engine below remains for compatibility with older clients. Do not use its checklist as a performance score.
+
 # Bobbyagency automated audit service
 
 This service checks the HTML of one public webpage and sends a one-time report to the address entered with consent. Any valid recipient provider is supported (Gmail, Yahoo, Outlook, etc.). One sender must be configured. No email credentials or secrets belong in GitHub, frontend JavaScript, or chat.
