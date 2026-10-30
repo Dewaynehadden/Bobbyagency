@@ -215,7 +215,8 @@ $('#audit-form').addEventListener('submit', event => {
   }
   $('#audit-error').textContent = '';
   input.removeAttribute('aria-invalid');
-  openEnquiry('Free store review', website);
+  if (window.BOBBY_AUDIT?.open) window.BOBBY_AUDIT.open(website);
+  else openEnquiry('Free store review', website);
 });
 $('#store-url').addEventListener('input', () => {
   $('#store-url').removeAttribute('aria-invalid');
@@ -374,7 +375,7 @@ showcaseTabs.forEach((tab, index) => {
 const information = {
   privacy: {
     title: 'Privacy information',
-    content: '<p>This website is a static portfolio. Its project and store-review forms prepare an email in your own email application. The website does not send, store, or upload the details you enter, and it does not request store passwords or admin access.</p><h3>Third-party services</h3><p>WhatsApp, Upwork, Fiverr, LinkedIn, Telegram, and email providers have their own privacy practices. Their websites open only when you choose a corresponding link. The testimonial video and images are served from this website.</p><h3>Hosting and enquiries</h3><p>For our service privacy policy, see <a href="terms.html#privacy">Terms &amp; Refund Policy</a>. Your hosting provider may keep standard request logs. Details you send by email or chat are handled through the service you choose. Contact <a href="mailto:dewaynehadden11@gmail.com">dewaynehadden11@gmail.com</a> with privacy questions about an enquiry.</p>'
+    content: '<p>This website is a static portfolio. Its project enquiry forms prepare an email in your own email application. When the optional automated audit is enabled, its separate consent form sends your public URL, name and email to the audit backend and email provider for a one-time report. No store passwords or admin access are requested. Basic spam-prevention data is held temporarily in backend memory; report emails are handled by the email provider. Reports are not a full-site, design, speed or security audit.</p><h3>Third-party services</h3><p>WhatsApp, Upwork, Fiverr, LinkedIn, Telegram, and email providers have their own privacy practices. Their websites open only when you choose a corresponding link. The testimonial video and images are served from this website.</p><h3>Hosting and enquiries</h3><p>For our service privacy policy, see <a href="terms.html#privacy">Terms &amp; Refund Policy</a>. Your hosting provider may keep standard request logs. Details you send by email or chat are handled through the service you choose. Contact <a href="mailto:dewaynehadden11@gmail.com">dewaynehadden11@gmail.com</a> with privacy questions about an enquiry.</p>'
   }
 };
 $$('[data-legal]').forEach(button => button.addEventListener('click', () => {

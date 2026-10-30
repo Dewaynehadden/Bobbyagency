@@ -354,3 +354,14 @@ html[data-theme="dark"] .theme-toggle { background:#323b4d;color:#ffda76; }
 @media(max-width:850px) { .payment-plans { gap:14px; }.payment-plan { padding:22px 18px; }.payment-plan li { font-size:11px; } }
 @media(max-width:650px) { .payment-plans { grid-template-columns:1fr;max-width:430px;gap:30px; }.payment-plan { padding:28px; }.payment-plan li { font-size:13px; }.payment-steps { grid-template-columns:1fr;gap:25px; }.payment-steps h3 { font-size:18px; }.payment-steps p { font-size:13px; }.payment-box { padding:20px; }.payment-box .form-row { grid-template-columns:1fr;gap:0; }.payment-tabs button { font-size:11px; }.payment-pricing .section-subtitle br { display:none; } }
 .payment-page section[id] { scroll-margin-top:90px; }
+
+/* Optional automatic audit: shown only after its backend URL is configured. */
+.audit-modal { width:min(760px,calc(100% - 28px)); }
+.audit-modal label { display:block;font-size:12px;font-weight:600;margin:16px 0; }
+.audit-modal :is(input:not([type="checkbox"]),textarea) { display:block;width:100%;padding:12px;border:1px solid var(--border);border-radius:8px;margin-top:7px;color:var(--ink);background:var(--paper);font-size:14px; }
+.audit-modal .audit-consent { display:flex;align-items:flex-start;gap:10px;font-size:11px;font-weight:400;line-height:1.8; }.audit-consent input { flex-shrink:0;margin-top:4px; }
+.audit-trap { position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden; }
+#audit-results { border-top:1px solid var(--border);margin-top:20px;padding-top:20px; }
+.audit-check { padding:16px;background:var(--warm);border:1px solid var(--border);border-left:4px solid #d79b20;border-radius:8px;margin:12px 0; }.audit-check[data-status="pass"] { border-left-color:#2b976b; }.audit-check[data-status="not_assessed"] { border-left-color:#7c889b; }.audit-check h4 { margin:0 0 7px;font-size:15px; }.audit-check p { margin:5px 0;font-size:12px;overflow-wrap:anywhere; }
+#automatic-audit-status { font-size:13px;line-height:1.8; }#audit-result-url { overflow-wrap:anywhere; }
+.audit-modal .button { margin:8px 8px 8px 0; }.audit-modal .text-link { margin-top:20px; }.audit-consent a { text-decoration:underline; }

@@ -184,7 +184,8 @@ with sync_playwright() as p:
     page.keyboard.press('Escape')
     assert toggle.get_attribute('aria-expanded') == 'false'
     assert toggle.evaluate('(b)=>document.activeElement===b')
-    page.locator('.header-actions [data-quote="general"]').click()
+    toggle.click()
+    page.locator('#main-navigation .mobile-nav-actions [data-quote="general"]').click()
     page.locator('#quote-email-option').click()
     assert page.locator('#enquiry-dialog').is_visible()
     # Native dialog must keep keyboard focus within itself.
