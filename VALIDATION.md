@@ -93,3 +93,6 @@ The full smoke suite also passed against the updated local website, including 28
 
 
 Audit activation: configured https://bobbyagency-audit.onrender.com/audit from the owner’s successful Render deployment log. Direct health/CORS checks from this environment returned a network-proxy 403, so real backend scanning and Gmail delivery remain unverified. No real email was sent by the assistant. Frontend integration is tested with mocked API responses; owner should submit one consenting test to their own inbox and check delivery before promoting the form.
+
+
+Audit accuracy correction: reproduced the reported SVG payment-icon title contamination and added a regression test that preserves only the document title. Expanded to 17 backend tests including inactive template content, optional canonical/multiple-H1 review statuses, client-rendered shell uncertainty, bot challenges, and viewport whitespace. The UI/email/download no longer present the HTML checklist as a site quality score. The public storefront in the owner screenshot could not be independently fetched because the environment proxy returned 403; its missing-description finding remains unverified. No buyer email was sent during testing.

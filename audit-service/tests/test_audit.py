@@ -13,7 +13,7 @@ class AuditTests(unittest.TestCase):
   result['data']=json.loads(b''.join(app.application(env,start)));return result
  def test_real_observations(self):
   report=auditor.analyse('https://example.com',HTML);self.assertEqual(report['passed'],7);self.assertEqual(report['assessed'],7)
-  report=auditor.analyse('http://example.com','<h1>One</h1><h1>Two</h1><img src="p">');self.assertEqual(report['passed'],0);self.assertEqual(report['checks'][-1]['evidence'],'1 of 1 image elements are missing an alt attribute.')
+  report=auditor.analyse('http://example.com','<h1>One</h1><h1>Two</h1><img src="p">');self.assertEqual(report['passed'],0);self.assertIn('1 of 1 image elements are missing an alt attribute.',report['checks'][-1]['evidence'])
   report=auditor.analyse('https://example.com','<title>Hello</title>');self.assertEqual(report['checks'][-1]['status'],'not_assessed');self.assertEqual(report['assessed'],6)
  def test_invalid_urls(self):
   for url in ['file:///etc/passwd','ftp://example.com','https://user:pass@example.com','http://example.com:8080','https://example.com/\r\nX:bad']:
@@ -54,4 +54,26 @@ class AuditTests(unittest.TestCase):
    payload=json.loads(request.call_args[0][0].data);self.assertEqual(payload['to'],'buyer@outlook.com');self.assertEqual(payload['token'],settings['GOOGLE_MAIL_TOKEN']);self.assertNotIn(payload['token'],payload['body'])
    request.return_value.__enter__.return_value.read.return_value=b'{"ok":false}'
    with self.assertRaises(RuntimeError):app.send_report('buyer@outlook.com','Alex',auditor.analyse('https://example.com',HTML))
+ def test_svg_titles_are_not_document_title(self):
+  document='<head><title>SO IONIC BOTANICALS</title></head><body><svg><title>American Express</title></svg><svg><title>Apple Pay</title></svg><h1>Our store</h1></body>'
+  result=auditor.analyse('https://example.com',document)
+  self.assertEqual(result['title'],'SO IONIC BOTANICALS')
+  self.assertNotIn('American Express',result['checks'][1]['evidence'])
+ def test_inactive_template_content_not_counted(self):
+  document='<title>Store</title><h1>Welcome</h1><template><h1>Not rendered</h1><img src="x"></template><noscript><h1>Fallback</h1></noscript><svg><title>Logo</title><image href="x"/></svg>'
+  result=auditor.analyse('https://example.com',document)
+  self.assertEqual(result['title'],'Store');self.assertEqual(result['checks'][4]['status'],'pass');self.assertEqual(result['checks'][-1]['status'],'not_assessed')
+ def test_optional_metadata_and_multiple_h1_are_reviews(self):
+  report=auditor.analyse('https://example.com','<title>Store</title><h1>First</h1><h1>Second</h1>')
+  self.assertEqual(report['checks'][4]['status'],'review');self.assertEqual(report['checks'][5]['status'],'review')
+  self.assertIn('not automatically',report['checks'][4]['recommendation'])
+ def test_client_shell_missing_content_is_inconclusive(self):
+  report=auditor.analyse('https://example.com','<div id="root"></div><script src="app.js"></script>')
+  self.assertTrue(report['possible_client_rendering'])
+  self.assertEqual(report['checks'][4]['status'],'not_assessed');self.assertEqual(report['checks'][2]['status'],'not_assessed')
+ def test_bot_challenge_not_scored_as_website(self):
+  with self.assertRaises(auditor.AuditError):auditor.analyse('https://example.com','<title>Just a moment...</title><script src="/cdn-cgi/challenge-platform/x.js"></script>')
+ def test_viewport_spacing_is_supported(self):
+  report=auditor.analyse('https://example.com','<meta name="viewport" content="width = device-width, initial-scale=1">')
+  self.assertEqual(report['checks'][3]['status'],'pass')
 if __name__=='__main__':unittest.main()

@@ -24,7 +24,7 @@ with sync_playwright() as p:
  page.locator('#audit-name').fill('Alex Buyer');page.locator('#audit-email').fill('buyer@gmail.com');page.locator('[name="consent"]').check();page.locator('#run-audit').click();page.locator('#audit-results:not([hidden])').wait_for()
  assert calls[0]['website']=='https://example.com/' and calls[0]['consent'] is True
  assert page.locator('.audit-check').count()==7
- assert '3 of 7' in page.locator('#audit-result-summary').inner_text()
+ assert '7 HTML observations' in page.locator('#audit-result-summary').inner_text()
  assert 'Meta description' in page.locator('#audit-checks').inner_text()
  assert 'accepted' in page.locator('#automatic-audit-status').inner_text()
  with page.expect_download() as download:page.locator('#download-audit').click()

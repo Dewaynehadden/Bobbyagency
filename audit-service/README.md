@@ -5,7 +5,7 @@ This service checks the HTML of one public webpage and sends a one-time report t
 ## What is implemented
 
 - Read-only checks for HTTPS, title, description, mobile viewport, H1 count, canonical link, and missing image alt attributes.
-- Evidence and suggested next steps, with a basic pass count. This is NOT a Lighthouse, sales, design, full-site accessibility, or security score.
+- Evidence and suggested next steps, as HTML observations, without an overall website score. This is NOT a Lighthouse, sales, design, full-site accessibility, or security score.
 - Public URL validation, private/reserved network rejection, DNS address pinning with TLS hostname verification, per-redirect validation, bounded HTML size/time, and limited parallel scans.
 - Email recipient validation, consent, honeypot, origin restrictions, in-memory cooldowns, and a default 30-request daily limit. These safeguards are a small-pilot baseline, not durable abuse protection.
 - No contact/report database. Temporary request details and rate limits live in process memory. Email providers retain/report mail according to their policies. The host may retain ordinary request logs.
@@ -56,3 +56,6 @@ Before scaling: use durable rate limits and CAPTCHA/abuse protection, monitor se
 ## Validation
 
 `python3 -m unittest discover -s tests -v` tests findings, missing evidence, URL rejection, private networks, redirects, DNS pinning/TLS, origin/cooldown restrictions, email formatting, successful delivery responses and email failure behavior. No real email is sent by tests.
+
+
+Accuracy correction: the document title excludes SVG icon titles; template/noscript content is excluded from active markup observations. Multiple H1 elements and a missing canonical are review suggestions, not automatic defects. Likely client-rendered app shells return inconclusive missing-content findings. Recognizable bot-challenge responses are not scored as the actual website. Every report states that rendered layout, speed and metadata quality have not been measured.

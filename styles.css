@@ -365,3 +365,5 @@ html[data-theme="dark"] .theme-toggle { background:#323b4d;color:#ffda76; }
 .audit-check { padding:16px;background:var(--warm);border:1px solid var(--border);border-left:4px solid #d79b20;border-radius:8px;margin:12px 0; }.audit-check[data-status="pass"] { border-left-color:#2b976b; }.audit-check[data-status="not_assessed"] { border-left-color:#7c889b; }.audit-check h4 { margin:0 0 7px;font-size:15px; }.audit-check p { margin:5px 0;font-size:12px;overflow-wrap:anywhere; }
 #automatic-audit-status { font-size:13px;line-height:1.8; }#audit-result-url { overflow-wrap:anywhere; }
 .audit-modal .button { margin:8px 8px 8px 0; }.audit-modal .text-link { margin-top:20px; }.audit-consent a { text-decoration:underline; }
+
+.audit-check h4 { line-height:1.5; }.audit-check[data-status="review"] { border-left-color:#d79b20; }
