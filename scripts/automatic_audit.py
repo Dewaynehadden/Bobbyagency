@@ -8,6 +8,7 @@ report=analyse('https://example.com/','<title>Example</title><h1>Welcome</h1><im
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox'])
  page=b.new_page(viewport={'width':1440,'height':1000},reduced_motion='reduce');errors=[];page.on('pageerror',lambda e:errors.append(e.stack))
+ page.route('**/audit-config.js*',lambda route:route.fulfill(content_type='text/javascript',body="window.BOBBY_AUDIT={endpoint:''};"))
  page.goto('http://127.0.0.1:3003/',wait_until='networkidle')
  assert 'personal review' in page.locator('#audit-note').inner_text().lower()
  page.locator('#store-url').fill('example.com');page.locator('#audit-form button').click();assert page.locator('#enquiry-dialog').is_visible();page.keyboard.press('Escape')
