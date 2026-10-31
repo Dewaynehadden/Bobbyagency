@@ -109,5 +109,13 @@ def text_report(report, name):
         for item in findings[:8]:
             lines.append('Review: ' + item['title'] + (' — ' + item['displayValue'] if item['displayValue'] else ''))
         lines.append('')
+    store = report.get('store_review')
+    if store:
+        lines += ['PUBLIC STORE EVIDENCE & SALES CONTEXT', 'Verified sales: UNKNOWN. No authorized order/analytics data connected.', 'Requester answer (unverified): ' + store['submitted_context']['sales_state']]
+        catalogue = store['catalogue']
+        lines += ['Public catalogue entries observed: ' + (str(catalogue['observed_count']) if catalogue.get('observed_count') is not None else 'Unavailable'), catalogue.get('scope', ''), 'No third-party sales-estimate provider is connected.']
+        for action in store['action_plan'][:8]:
+            lines += [action['basis'] + ': ' + action['suggestion']]
+        lines.append('')
     lines += [report['limitations'], '', 'These findings support a discussion, not an automatic invoice. Agree the scope and fee in writing before work.', 'Request a quote: https://dewaynehadden.github.io/Bobbyagency/payment.html#start-project', 'Open Google PageSpeed for a NEW run (results may differ): ' + report['google_url'], 'You requested this one-time report; no marketing subscription was created.']
     return '\n'.join(lines)[:18000]

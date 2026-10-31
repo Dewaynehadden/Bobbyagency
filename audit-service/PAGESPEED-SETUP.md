@@ -43,3 +43,12 @@ The daily limit counts buyer audit requests, each of which can make two PageSpee
 ## Validation before promotion
 
 Run a report to your OWN email after key setup. Confirm both device results, raw JSON downloads, actual email delivery, and a missing-field-data state if appropriate. Compare each result to its captured Lighthouse response rather than a separate run on pagespeed.web.dev. Preserve downloaded reports for before/after comparisons with matching strategy/version and comparable conditions.
+
+
+## Public store evidence and sales context
+
+The report now adds optional requester-submitted order status and concern, public storefront link observations, and bounded Shopify/WooCommerce catalogue sampling. It never derives sales, orders or revenue from product counts or inventory changes. Catalogue sampling uses the existing DNS-pinned public fetcher (JSON content type allowed) and at most two pages of 50 stable product IDs; variants are not counted separately. Partial counts and empty/unavailable endpoints carry explicit limitations. Public links are observed, not visited or verified as functional. Checkout, payment, order/customer data and inventory are never modified or accessed through authenticated APIs.
+
+Sales status is always unknown in the verified-data field until an owner-authorized analytics integration exists. Requester answers remain unverified. No PPSPY account/API/scraping integration is configured: public documentation could not be retrieved from this environment, so its availability/permission was not assumed. A future estimated-sales provider requires documented access rights, attribution, timestamp and clear estimated/unverified labeling.
+
+No new environment variables, paid provider or additional user account setup is required for these public observations. Existing Render auto-deploy should pick up the code update; if disabled, manually deploy the latest commit.

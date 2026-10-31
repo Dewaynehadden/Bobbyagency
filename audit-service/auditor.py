@@ -26,21 +26,23 @@ class PinnedHTTPS(http.client.HTTPSConnection):
 class PinnedHTTP(http.client.HTTPConnection):
  def __init__(self,host,ip,timeout):super().__init__(host,timeout=timeout);self.ip=ip
  def connect(self):self.sock=socket.create_connection((self.ip,80),timeout=self.timeout)
-def fetch_public(value):
+def fetch_public(value, content_type="html"):
  url=validate_url(value);started=time.monotonic()
  for _ in range(5):
   if time.monotonic()-started>22:raise AuditError('The website took too long to respond. Please try later.')
   p=urlsplit(url);ip=public_addresses(p.hostname,443 if p.scheme=='https' else 80)[0]
   connection=(PinnedHTTPS if p.scheme=='https' else PinnedHTTP)(p.hostname,ip,8)
   try:
-   connection.request('GET',urlunsplit(('','',p.path or '/',p.query,'')),headers={'User-Agent':'BobbyagencyAudit/1.0 (public homepage review)','Accept':'text/html','Accept-Encoding':'identity'})
+   connection.request('GET',urlunsplit(('','',p.path or '/',p.query,'')),headers={'User-Agent':'BobbyagencyAudit/1.0 (public homepage review)','Accept':'application/json' if content_type=='json' else 'text/html','Accept-Encoding':'identity'})
    response=connection.getresponse()
    if response.status in (301,302,303,307,308):
     location=response.getheader('Location')
     if not location:raise AuditError('The website returned an incomplete redirect.')
     url=validate_url(urljoin(url,location));continue
    if response.status!=200:raise AuditError('The website returned HTTP '+str(response.status)+'. It may restrict automated checks.')
-   if 'text/html' not in (response.getheader('Content-Type') or '').lower():raise AuditError('This address does not return an HTML webpage.')
+   returned_type=(response.getheader('Content-Type') or '').lower()
+   if content_type=='json' and 'json' not in returned_type:raise AuditError('The public catalogue endpoint did not return JSON.')
+   if content_type=='html' and 'text/html' not in returned_type:raise AuditError('This address does not return an HTML webpage.')
    chunks=[];total=0
    while True:
     if time.monotonic()-started>22:raise AuditError('The website took too long to respond.')

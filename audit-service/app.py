@@ -4,6 +4,7 @@ from urllib.parse import urlsplit
 from email.message import EmailMessage
 from auditor import AuditError,fetch_public,analyse,report_text
 from jobs import start_job,read_job
+from store_review import SALES_STATES,CONCERNS
 ORIGIN=os.environ.get('AUDIT_ALLOWED_ORIGIN','https://dewaynehadden.github.io')
 MAIL_LOCK=threading.Lock();TIMES={};DAILY=[];SLOTS=threading.BoundedSemaphore(2)
 EMAIL=re.compile(r'^[^\s@<>\r\n]+@[^\s@<>\r\n]+\.[^\s@<>\r\n]+$')
@@ -67,7 +68,9 @@ def application(env,start):
    if len(DAILY)>=int(os.environ.get('AUDIT_DAILY_LIMIT','30')) or any((k[0]==key[0] or k[1]==key[1]) and now-v<600 for k,v in TIMES.items()):return reply(429,{'error':'Please wait before requesting another report. If you already requested one, check your inbox and spam folder.'})
    TIMES[key]=now;DAILY.append(now)
   if data.get('engine')=='pagespeed':
-   try:job_id=start_job(website,name,email,send_report)
+   context={'sales_state':data.get('sales_state','unknown'),'sales_concern':data.get('sales_concern','unknown')}
+   if context['sales_state'] not in SALES_STATES or context['sales_concern'] not in CONCERNS:return reply(400,{'error':'Choose valid sales-context options.'})
+   try:job_id=start_job(website,name,email,send_report,context)
    except AuditError:
     with MAIL_LOCK:
      TIMES.pop(key,None)

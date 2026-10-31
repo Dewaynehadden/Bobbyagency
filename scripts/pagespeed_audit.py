@@ -8,6 +8,10 @@ sys.path.insert(0,str(Path(__file__).resolve().parents[1]/'audit-service'))
 from pagespeed import normalize
 mobile=fixture();desktop=fixture('desktop',.98)
 report={'source':'google_pagespeed','schema_version':3,'url':'https://example.com/','checked_at':'2026-10-30T12:00:00Z','devices':{'mobile':normalize(mobile,'mobile'),'desktop':normalize(desktop,'desktop')},'errors':{},'google_url':'https://pagespeed.web.dev/analysis?url=https%3A%2F%2Fexample.com','limitations':'Synthetic test fixture. Real production reports contain measured Google responses, not this fixture.'}
+from unittest.mock import patch
+from store_review import review_store
+with patch('store_review.fetch_public',side_effect=[('https://example.com/','<title>Store</title><script src="https://cdn.shopify.com/x.js"></script><a href="/shipping">Shipping</a>'),('https://example.com/products.json','{"products":[{"id":1,"title":"Test product"},{"id":2,"title":"Another product"}]}')]):
+ report['store_review']=review_store('https://example.com/',{'sales_state':'no','sales_concern':'traffic'},report['devices'])
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox'])
  page=b.new_page(viewport={'width':1440,'height':1000},reduced_motion='reduce');errors=[];page.on('pageerror',lambda e:errors.append(e.stack))
@@ -18,8 +22,12 @@ with sync_playwright() as p:
  page.route('https://audit.example/audit/jobs/*/raw/*',lambda r:r.fulfill(status=200,content_type='application/json',headers={'Access-Control-Allow-Origin':'*'},body=json.dumps(mobile)))
  page.goto('http://127.0.0.1:3003/',wait_until='networkidle')
  page.locator('#store-url').fill('example.com');page.locator('#audit-form button').click()
- page.locator('#audit-name').fill('Test Buyer');page.locator('#audit-email').fill('buyer@example.test');page.locator('[name="consent"]').check();page.locator('#run-audit').click();page.locator('#pagespeed-report h3').first.wait_for()
- assert payload[0]['engine']=='pagespeed'
+ page.locator('#audit-name').fill('Test Buyer');page.locator('#audit-email').fill('buyer@example.test');page.locator('#audit-sales-state').select_option('no');page.locator('#audit-sales-concern').select_option('traffic');page.locator('[name="consent"]').check();page.locator('#run-audit').click();page.locator('#pagespeed-report h3').first.wait_for()
+ assert payload[0]['engine']=='pagespeed' and payload[0]['sales_state']=='no' and payload[0]['sales_concern']=='traffic'
+ assert 'Verified sales' in page.locator('.store-review').inner_text()
+ assert page.locator('.store-evidence-cards article').nth(0).locator('strong').inner_text()=='Unknown'
+ assert page.locator('.store-evidence-cards article').nth(2).locator('strong').inner_text()=='2'
+ assert 'not independently verified' in page.locator('.store-review').inner_text()
  assert page.locator('.psi-device:not([hidden]) .psi-ring').first.inner_text()=='77'
  assert page.locator('.psi-device:not([hidden]) .psi-ring').nth(1).inner_text()=='—'
  assert '6.6 s' in page.locator('.psi-device:not([hidden]) .psi-metrics').inner_text()
