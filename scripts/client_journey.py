@@ -7,11 +7,11 @@ with sync_playwright() as p:
  page=browser.new_page(viewport={'width':1440,'height':1000},reduced_motion='reduce')
  errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
  assert page.goto('http://127.0.0.1:3001/',wait_until='networkidle').status==200
- assert page.locator('.service-card').count()==28
+ assert page.locator('.service-card').count()==29
  assert page.locator('.service-card:visible').count()==9
- assert page.locator('#service-results-count').inner_text()=='Showing 9 of 28 services'
+ assert page.locator('#service-results-count').inner_text()=='Showing 9 of 29 services'
  page.locator('#service-show-all').click()
- assert page.locator('.service-card:visible').count()==28
+ assert page.locator('.service-card:visible').count()==29
  page.locator('#service-show-all').click()
  assert page.locator('.service-card:visible').count()==9
  page.locator('[data-service-filter="AI & Automation"]').click()
@@ -57,7 +57,7 @@ with sync_playwright() as p:
    page.screenshot(path=f'/tmp/new-portfolio-validation/{name}-{suffix}.png')
  nojs=browser.new_page(java_script_enabled=False)
  nojs.goto('http://127.0.0.1:3001/')
- assert nojs.locator('.service-card:visible').count()==28
+ assert nojs.locator('.service-card:visible').count()==29
  assert not errors,errors
  browser.close()
-print('PASS: service filters/search/expand/reset, all 28 services retained, specific/general quotes, mobile navigation, project process, social metadata, WhatsApp link, no-JS catalogue, six responsive widths, and no JavaScript errors.')
+print('PASS: service filters/search/expand/reset, all 29 services retained, specific/general quotes, mobile navigation, project process, social metadata, WhatsApp link, no-JS catalogue, six responsive widths, and no JavaScript errors.')

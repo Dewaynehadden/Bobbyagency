@@ -482,7 +482,8 @@ if (serviceFinder) {
     const matches = cards.map((card, index) => ({ card, service: services[index] }))
       .filter(({ service }) => (selectedGroup === 'All services' || service.group === selectedGroup)
         && `${service.title} ${service.desc} ${service.category}`.toLowerCase().includes(query));
-    const visible = new Set((showAll ? matches : matches.slice(0, 9)).map(item => item.card));
+    const preview = [...matches.filter(item => item.service.featured), ...matches.filter(item => !item.service.featured)].slice(0, 9);
+    const visible = new Set((showAll ? matches : preview).map(item => item.card));
     cards.forEach(card => { card.hidden = !visible.has(card); });
     $('#service-results-count').textContent = `Showing ${visible.size} of ${matches.length} services`;
     $('.service-empty').hidden = matches.length !== 0;

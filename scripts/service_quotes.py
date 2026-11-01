@@ -7,8 +7,8 @@ with sync_playwright() as p:
  page=b.new_page(viewport={'width':1440,'height':1000},reduced_motion='reduce')
  errors=[];page.on('pageerror',lambda e:errors.append(str(e)))
  assert page.goto('http://127.0.0.1:3001/',wait_until='networkidle').status==200
- assert page.locator('.service-card').count()==28
- assert page.locator('.service-review-line').count()==28
+ assert page.locator('.service-card').count()==29
+ assert page.locator('.service-review-line').count()==29
  page.locator('#service-show-all').click()
  assert {s['revisions'] for s in catalog}=={2,3,4,5}
  for index,service in enumerate(catalog):
@@ -55,4 +55,4 @@ with sync_playwright() as p:
  page.screenshot(path='/tmp/new-portfolio-validation/quote-options.png')
  assert not errors,errors
  b.close()
-print('PASS: 28 service cards, 24 reference offerings, revision allowances, all details/quote channels, email fallback, skill links, responsive layouts, images, no JavaScript errors.')
+print('PASS: 29 service cards, 24 reference offerings, revision allowances, all details/quote channels, email fallback, skill links, responsive layouts, images, no JavaScript errors.')

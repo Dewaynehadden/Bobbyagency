@@ -20,7 +20,7 @@ with sync_playwright() as p:
  assert page.locator('[data-business-metric="successRate"] [data-metric-label]').inner_text()=='Upwork Job Success'
  assert page.locator('[data-business-metric="countriesServed"] [data-metric-value]').inner_text()=='Global'
  assert page.locator('.service-card:visible').count()==9
- assert page.locator('.service-card').count()==28
+ assert page.locator('.service-card').count()==29
  assert len(set(x['image'] for x in catalog['services']))>4
  page.locator('#service-show-all').click()
  for i,img in enumerate(page.locator('.service-card img').all()):
@@ -46,4 +46,4 @@ with sync_playwright() as p:
  assert not errors,errors
  assert not bad,bad
  b.close()
-print('PASS: six illustrated trust cards, owner-provided 250+/100% Upwork summary, no invented country count, nine services visible/28 retained, more than four real photos, all matching modal images, six responsive widths, no resource or JavaScript errors.')
+print('PASS: six illustrated trust cards, owner-provided 250+/100% Upwork summary, no invented country count, nine services visible/29 retained, more than four real photos, all matching modal images, six responsive widths, no resource or JavaScript errors.')

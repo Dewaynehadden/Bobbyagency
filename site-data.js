@@ -451,6 +451,23 @@ window.BOBBY_DATA = {
       "group": "Support & Strategy",
       "image": "assets/founder-desk.jpg",
       "imageAlt": "Timmy, the founder of Bobbyagency, working at his desk"
+    },
+    {
+      "title": "Print on Demand (POD)",
+      "desc": "Launch or improve your POD business with a branded Shopify or WooCommerce store, product setup, and Printful, Printify or Gelato integration.",
+      "category": "Print on demand",
+      "deliveryDays": 10,
+      "revisions": 3,
+      "includes": [
+        "Shopify or WooCommerce POD store setup and branded storefront improvements",
+        "Printful, Printify or Gelato integration, based on the agreed provider and scope",
+        "Product listings, client-approved artwork uploads, variants and pricing setup",
+        "Shipping and fulfilment configuration, order-flow checks and launch handover"
+      ],
+      "group": "Websites & Stores",
+      "image": "assets/services/photos/brand-content.jpg",
+      "imageAlt": "Printed brand materials and stationery arranged on a creative workspace",
+      "featured": true
     }
   ],
   "projects": [
